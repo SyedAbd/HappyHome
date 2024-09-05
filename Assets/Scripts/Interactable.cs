@@ -7,7 +7,8 @@ public class Interactable : MonoBehaviour
     // This method will be called when the player interacts with the object
     public virtual void OnInteract()
     {
-        Debug.Log("Interacted with " + gameObject.name);
-        // Implement interaction logic here (e.g., open a door, pick up an item)
+        // Generate and display random numbers in the console
+        int randomNumber = Random.Range(1, 101); // Random number between 1 and 100
+        Debug.Log("Generated Random Number: " + randomNumber);
     }
 }

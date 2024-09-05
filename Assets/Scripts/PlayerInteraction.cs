@@ -31,7 +31,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             interactableObject = hit.collider.gameObject; // Save the interactable object
 
-            // Optional: You can display a UI prompt (e.g., "Press E to interact") here
+            // Optional: Display a UI prompt (e.g., "Press E to interact") here
             Debug.Log("Looking at interactable object: " + interactableObject.name);
         }
         else
@@ -43,13 +43,10 @@ public class PlayerInteraction : MonoBehaviour
     // Interact with the object
     void InteractWithObject()
     {
-        // You can implement different interactions here (e.g., open door, pick up item)
+        // Log interaction with the object
         Debug.Log("Interacting with: " + interactableObject.name);
 
-        // Example interaction: Destroy the object (you can replace this with any interaction logic)
-        // Destroy(interactableObject);
-
-        // Call an interactable object's script (assuming it has one, like "Interactable.cs")
+        // Call the interactable object's script
         Interactable interactable = interactableObject.GetComponent<Interactable>();
         if (interactable != null)
         {
@@ -57,4 +54,3 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 }
-
