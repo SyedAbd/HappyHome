@@ -53,7 +53,7 @@ public class InteractItem : MonoBehaviour
     private void DropItem()
     {
         
-        Instantiate(keyPrefab, transform.position - offset, Quaternion.identity);
+        Instantiate(keyPrefab, transform.position , Quaternion.identity);
 
         
         Destroy(gameObject);
