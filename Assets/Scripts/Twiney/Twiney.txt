@@ -1,0 +1,22 @@
+:: StoryTitle
+Testing
+
+:: UserScript[script]
+
+:: UserStylesheet[stylesheet]
+
+:: Start-Node[START]
+hello how are you doing
+[[Not good]] 
+[[Good]] 
+
+:: Good 
+Hey that is perfect that you are doing good
+[[x]]
+
+:: Not good 
+I am sorry to hear that you are not doing good
+[[x]]
+
+
+
