@@ -30,7 +30,7 @@ public class HealthBarController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Здоровье закончилось!");
+            Debug.Log("You are dead!");
         }
     }
 }
