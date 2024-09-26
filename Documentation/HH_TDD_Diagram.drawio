@@ -153,20 +153,20 @@
     </mxGraphModel>
   </diagram>
   <diagram id="zLHY0rBmZ87AjwMN3abp" name="Scripts">
-    <mxGraphModel dx="1313" dy="956" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1050" dy="765" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-1" value="" style="rounded=1;whiteSpace=wrap;html=1;glass=0;shadow=0;fillColor=none;strokeColor=#FFD966;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-1" value="" style="rounded=1;whiteSpace=wrap;html=1;glass=0;shadow=0;fillColor=none;strokeColor=#FFD966;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" parent="1" vertex="1">
           <mxGeometry x="80" y="840" width="480" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-2" value="" style="rounded=1;whiteSpace=wrap;html=1;glass=0;shadow=0;fillColor=none;strokeColor=#FFD966;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-2" value="" style="rounded=1;whiteSpace=wrap;html=1;glass=0;shadow=0;fillColor=none;strokeColor=#FFD966;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" parent="1" vertex="1">
           <mxGeometry x="240" y="200" width="840" height="540" as="geometry" />
         </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-3" value="Scripts" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Folder_Blank.svg;" vertex="1" parent="1">
+        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-3" value="Scripts" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Folder_Blank.svg;" parent="1" vertex="1">
           <mxGeometry x="560" y="60" width="123.21" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-4" value="" style="endArrow=none;html=1;rounded=1;entryX=-0.003;entryY=0.496;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;curved=0;strokeColor=#FFD966;" edge="1" parent="1" source="sX2Jdf7z5ZuY2yy3SfFI-2" target="sX2Jdf7z5ZuY2yy3SfFI-3">
+        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-4" value="" style="endArrow=none;html=1;rounded=1;entryX=-0.003;entryY=0.496;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;curved=0;strokeColor=#FFD966;" parent="1" source="sX2Jdf7z5ZuY2yy3SfFI-2" target="sX2Jdf7z5ZuY2yy3SfFI-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="490" y="170" as="sourcePoint" />
             <mxPoint x="540" y="120" as="targetPoint" />
@@ -175,40 +175,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-5" value="Custom.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="290" y="240" width="86.53" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-6" value="HealthBarController.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="290" y="400" width="86.53" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-7" value="Interactable.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="930" y="400" width="86.53" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-8" value="InteractItem.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="930" y="240" width="86.53" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-9" value="Key.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="610" y="240" width="86.53" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-10" value="PickUpController.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="450" y="400" width="86.53" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-11" value="PickUpItem.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="770" y="240" width="86.53" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-12" value="PlayerController.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="610" y="400" width="86.53" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-13" value="PlayerInteraction.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="770" y="400" width="86.53" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-14" value="TetsScript.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="450" y="240" width="86.53" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-15" value="Twiney" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Folder_Blank.svg;" vertex="1" parent="1">
+        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-15" value="Twiney" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Folder_Blank.svg;" parent="1" vertex="1">
           <mxGeometry x="280" y="560" width="98.57" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-16" value="" style="endArrow=classic;html=1;rounded=1;exitX=-0.004;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;curved=0;dashed=1;strokeColor=#FFD966;" edge="1" parent="1" source="sX2Jdf7z5ZuY2yy3SfFI-15" target="sX2Jdf7z5ZuY2yy3SfFI-1">
+        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-16" value="" style="endArrow=classic;html=1;rounded=1;exitX=-0.004;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;curved=0;dashed=1;strokeColor=#FFD966;" parent="1" source="sX2Jdf7z5ZuY2yy3SfFI-15" target="sX2Jdf7z5ZuY2yy3SfFI-1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="310" y="810" as="sourcePoint" />
             <mxPoint x="360" y="760" as="targetPoint" />
@@ -217,14 +187,44 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-17" value="DialogueController.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="130" y="880" width="86.53" height="80" as="geometry" />
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-1" value="&lt;div&gt;InteractItem.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="935.27" y="240" width="76" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-18" value="DialogueObject.cs" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="290" y="880" width="86.53" height="80" as="geometry" />
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-2" value="&lt;div&gt;TetsScript.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="455.27" y="240" width="76" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="sX2Jdf7z5ZuY2yy3SfFI-19" value="DialogueViewer&lt;span style=&quot;background-color: initial;&quot;&gt;.cs&lt;/span&gt;" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#CCCCCC;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.script;" vertex="1" parent="1">
-          <mxGeometry x="450" y="880" width="86.53" height="80" as="geometry" />
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-3" value="&lt;div&gt;Key.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="615.27" y="240" width="76" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-4" value="&lt;div&gt;PickUpItem.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="775.27" y="240" width="76" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-5" value="Custom.cs&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="295.27" y="240" width="76" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-6" value="&lt;div&gt;HealthBarController.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="295.27" y="400" width="76" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-7" value="&lt;div&gt;PickUpController.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="455.27" y="400" width="76" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-8" value="&lt;div&gt;PlayerController.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="622" y="400" width="76" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-9" value="&lt;div&gt;PlayerInteraction.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="775.27" y="400" width="76" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-10" value="&lt;div&gt;Interactable.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="935.27" y="400" width="76" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-11" value="&lt;div&gt;DialogueController.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="880" width="76" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-12" value="&lt;div&gt;DialogueViewer.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="880" width="76" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="X1koi8tcwyEu0DE1N5rl-13" value="&lt;div&gt;DialogueObject.cs&lt;/div&gt;" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#CCCCCC;shape=mxgraph.azure.script_file;pointerEvents=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="880" width="76" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
