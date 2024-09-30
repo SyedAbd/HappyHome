@@ -67,9 +67,9 @@ public class DialogueObject
         }
 
         public Node GetStartNode()
-        {
+       {
             UnityEngine.Assertions.Assert.IsNotNull(titleOfStartNode);
-            return nodes[titleOfStartNode];
+           return nodes[titleOfStartNode];
         }
 
         public void ParseTwineText(string twineText)
