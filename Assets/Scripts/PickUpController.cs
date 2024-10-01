@@ -7,7 +7,7 @@ public class PickUpController: MonoBehaviour
     public float pickupRange = 3f; 
     public Transform pickupPoint; 
     public LayerMask pickupLayer; 
-    private GameObject heldObject;
+    [SerializeField]private GameObject heldObject;
 
     public float dropForce = 5f;
 
