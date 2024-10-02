@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ink.Runtime;
+using UnityEngine.UI;
 
 public class InkTestingScript : MonoBehaviour
 {
 
     public TextAsset inkJSON;
     private Story story;
+    public Text textPrefab;
+    public Button buttonPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +40,7 @@ public class InkTestingScript : MonoBehaviour
 
         if (story.canContinue)
         {
-            Debug.Log(story.ContinueMaximally());
+            text = story.ContinueMaximally();
         }
 
         return text;
