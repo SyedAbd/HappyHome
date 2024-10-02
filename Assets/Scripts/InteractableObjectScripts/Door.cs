@@ -1,37 +1,50 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;  // For TextMeshProUGUI
 
 public class Door : MonoBehaviour
 {
-    public string targetScene; // Set the target scene name in the Inspector
-    public string nextRoomText; // Set the tooltip text in the Inspector, e.g., "Go to the Living Room"
+    public string targetScene; 
+    public string instructionText;
+    public TextMeshProUGUI enterTextUI;   
+    private bool isNearDoor = false; 
 
-    private bool isHovering = false;
-
-    void OnMouseOver()
+    void Start()
     {
-        isHovering = true;
+        
+        enterTextUI.gameObject.SetActive(false);
     }
 
-    void OnMouseExit()
+    void Update()
     {
-        isHovering = false;
-    }
-
-    void OnMouseDown()
-    {
-        if (!string.IsNullOrEmpty(targetScene))
+        
+        if (isNearDoor && Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene(targetScene);
+            if (!string.IsNullOrEmpty(targetScene))
+            {
+                SceneManager.LoadScene(targetScene); 
+            }
         }
     }
 
-    void OnGUI()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (isHovering)
+        Debug.Log("Something entered");
+        if (other.CompareTag("Player"))
         {
-            Vector3 mousePosition = Input.mousePosition;
-            GUI.Label(new Rect(mousePosition.x + 15, Screen.height - mousePosition.y, 200, 20), nextRoomText);
+            isNearDoor = true;
+            enterTextUI.text = instructionText;
+            enterTextUI.gameObject.SetActive(true); 
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("Player"))
+        {
+            isNearDoor = false; 
+            enterTextUI.gameObject.SetActive(false); 
         }
     }
 }
