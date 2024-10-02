@@ -521,18 +521,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69f4c4147823e6344868c7e42fa3199d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1523318507}
   smoothSpeed: 0.125
-  offset: {x: 0, y: 0, z: 0}
   minX: 0
-  maxX: 5
-  minY: 0
-  maxY: 0
+  maxX: 25
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,6 +791,10 @@ PrefabInstance:
       propertyPath: enterTextUI
       value: 
       objectReference: {fileID: 804094909}
+    - target: {fileID: 1504967468562061747, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: instructionText
+      value: Press E to Enter Living Room
+      objectReference: {fileID: 0}
     - target: {fileID: 3438571092433441908, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
       propertyPath: m_IsTrigger
       value: 1
