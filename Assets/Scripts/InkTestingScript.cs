@@ -1,14 +1,14 @@
+using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Ink.Runtime;
 using UnityEngine.UI;
 
 public class InkTestingScript : MonoBehaviour
 {
-
     public TextAsset inkJSON;
     private Story story;
+
     public Text textPrefab;
     public Button buttonPrefab;
 
@@ -16,27 +16,57 @@ public class InkTestingScript : MonoBehaviour
     void Start()
     {
         story = new Story(inkJSON.text);
-        Debug.Log(loadStoryChunk());
 
-        for(int i = 0; i < story.currentChoices.Count; i++)
+        refreshUI();
+
+    }
+
+    void refreshUI()
+    {
+
+        eraseUI();
+
+        Text storyText = Instantiate(textPrefab) as Text;
+        storyText.text = loadStoryChunk();
+        storyText.transform.SetParent(this.transform, false);
+
+        foreach (Choice choice in story.currentChoices)
         {
-            Debug.Log(story.currentChoices[i].text);
+            Button choiceButton = Instantiate(buttonPrefab) as Button;
+            choiceButton.transform.SetParent(this.transform, false);
+
+            Text choiceText = choiceButton.GetComponentInChildren<Text>();
+
+            choiceButton.onClick.AddListener(delegate {
+                chooseStoryChoice(choice);
+            });
+
         }
+    }
 
-        story.ChooseChoiceIndex(0);
+    void eraseUI()
+    {
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            Destroy(this.transform.GetChild(i).gameObject);
+        }
+    }
 
-        Debug.Log(loadStoryChunk());
+    void chooseStoryChoice(Choice choice)
+    {
+        story.ChooseChoiceIndex(choice.index);
+        refreshUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     string loadStoryChunk()
     {
-        string text = ""; 
+        string text = "";
 
         if (story.canContinue)
         {
@@ -45,5 +75,4 @@ public class InkTestingScript : MonoBehaviour
 
         return text;
     }
-        
 }
