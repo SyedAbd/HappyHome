@@ -1,6 +1,7 @@
 using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,7 +35,8 @@ public class InkTestingScript : MonoBehaviour
         {
             Button choiceButton = Instantiate(buttonPrefab) as Button;
             choiceButton.transform.SetParent(this.transform, false);
-
+            //choiceButton.GetComponentInChildren<Text>().text = "la di da";
+           
             Text choiceText = choiceButton.GetComponentInChildren<Text>();
 
             choiceButton.onClick.AddListener(delegate {
