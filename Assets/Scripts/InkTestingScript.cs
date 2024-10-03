@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InkTestingScript : MonoBehaviour
 {
@@ -24,27 +25,41 @@ public class InkTestingScript : MonoBehaviour
 
     void refreshUI()
     {
-
         eraseUI();
 
+        // Instantiate and display the current story chunk
         Text storyText = Instantiate(textPrefab) as Text;
         storyText.text = loadStoryChunk();
         storyText.transform.SetParent(this.transform, false);
 
+        // Create a button for each available choice
         foreach (Choice choice in story.currentChoices)
         {
+            // Instantiate a new button
             Button choiceButton = Instantiate(buttonPrefab) as Button;
             choiceButton.transform.SetParent(this.transform, false);
-            //choiceButton.GetComponentInChildren<Text>().text = "la di da";
-           
-            Text choiceText = choiceButton.GetComponentInChildren<Text>();
 
+            // Find the TextMeshProUGUI component in the button prefab
+            TextMeshProUGUI choiceText = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
+
+            if (choiceText != null)
+            {
+                // Set the button text to the corresponding Ink choice text
+                choiceText.text = choice.text;
+            }
+            else
+            {
+                // Log an error if the TextMeshProUGUI component is missing
+                Debug.LogError("TextMeshProUGUI component not found in button prefab.");
+            }
+
+            // Add a listener to handle the button click
             choiceButton.onClick.AddListener(delegate {
                 chooseStoryChoice(choice);
             });
-
         }
     }
+
 
     void eraseUI()
     {
