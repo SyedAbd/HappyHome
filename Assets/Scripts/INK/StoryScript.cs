@@ -14,11 +14,13 @@ public class StoryScript : MonoBehaviour
     public Text textPrefab;
     public Button buttonPrefab;
 
+    private Text storyText;
+
     // Start is called before the first frame update
     void Start()
     {
         story = new Story(inkJSON.text);
-
+        //storyText = Instantiate(textPrefab) as Text;
         refreshUI();
 
     }
@@ -28,8 +30,13 @@ public class StoryScript : MonoBehaviour
         eraseUI();
 
         // Instantiate and display the current story chunk
-        Text storyText = Instantiate(textPrefab) as Text;
-        storyText.text = loadStoryChunk();
+        storyText = Instantiate(textPrefab) as Text;
+        //storyText.text = loadStoryChunk();
+        storyText.text = "";
+        string text = loadStoryChunk();
+        StartCoroutine(WriteTextSlowly(text));
+        
+        
         storyText.transform.SetParent(this.transform, false);
 
         // Create a button for each available choice
@@ -90,5 +97,16 @@ public class StoryScript : MonoBehaviour
         }
 
         return text;
+    }
+    IEnumerator WriteTextSlowly(string text)
+    {
+        for(int i = 0;i < text.Length; i++)
+        {
+            storyText.text += text[i];
+            yield return new WaitForSeconds(0.005f);
+        }
+
+
+
     }
 }
