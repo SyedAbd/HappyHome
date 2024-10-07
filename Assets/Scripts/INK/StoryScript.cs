@@ -60,7 +60,6 @@ public class StoryScript : MonoBehaviour
         }
     }
 
-
     void eraseUI()
     {
         for (int i = 0; i < this.transform.childCount; i++)
