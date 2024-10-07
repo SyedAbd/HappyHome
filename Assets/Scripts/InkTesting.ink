@@ -1,8 +1,6 @@
-﻿Hello World!
+﻿Have you ever seen the dialogue system before? #Dan
 
-More text
+*"No, I haven't"
+*"A what?"
 
-*Choice 1
-*Choice 2
-*Choice 3
-This is the end!
+A dialogue system. It's what this looks like now #Dan
