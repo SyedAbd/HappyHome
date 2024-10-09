@@ -39,6 +39,11 @@ public class StoryScript : MonoBehaviour
         
         storyText.transform.SetParent(this.transform, false);
 
+        
+    }
+    void CreateButtons()
+    {
+
         // Create a button for each available choice
         foreach (Choice choice in story.currentChoices)
         {
@@ -65,8 +70,9 @@ public class StoryScript : MonoBehaviour
                 chooseStoryChoice(choice);
             });
         }
-    }
 
+
+    }
     void eraseUI()
     {
         for (int i = 0; i < this.transform.childCount; i++)
@@ -106,7 +112,7 @@ public class StoryScript : MonoBehaviour
             yield return new WaitForSeconds(0.005f);
         }
 
-
+        CreateButtons();
 
     }
 }
