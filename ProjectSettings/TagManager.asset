@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - BedroomKey
+  - Flashlight
   layers:
   - Default
   - TransparentFX
