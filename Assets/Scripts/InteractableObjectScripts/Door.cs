@@ -51,7 +51,8 @@ public class Door : MonoBehaviour
                 enterTextUI.text = instructionTextNoKey;
             }
 
-            enterTextUI.gameObject.SetActive(true);  // Show the instruction text
+            enterTextUI.gameObject.SetActive(true);
+            enterTextUI.enabled = true;// Show the instruction text
         }
     }
 
