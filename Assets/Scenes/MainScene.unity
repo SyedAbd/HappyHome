@@ -773,6 +773,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &665094274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6310619030012485035, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+  m_PrefabInstance: {fileID: 6365207550550733094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &734968980
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,9 +788,11 @@ GameObject:
   m_Component:
   - component: {fileID: 734968982}
   - component: {fileID: 734968981}
+  - component: {fileID: 734968984}
+  - component: {fileID: 734968983}
   m_Layer: 0
-  m_Name: Key
-  m_TagString: Untagged
+  m_Name: BedroomKey
+  m_TagString: BedroomKey
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -851,12 +858,62 @@ Transform:
   m_GameObject: {fileID: 734968980}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.63587475, y: 0.14273767, z: 0.016348405}
+  m_LocalPosition: {x: 0.48, y: 0.14273766, z: 0.016348405}
   m_LocalScale: {x: 0.18900634, y: 0.21547431, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1985661547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &734968983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734968980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1dcb32699743c64883216acbad10cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 665094274}
+  interactionText: {fileID: 804094909}
+  smoothTime: 0.5
+--- !u!70 &734968984
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734968980}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -11.081942}
+  m_Size: {x: 3.5700002, y: 25.295353}
+  m_Direction: 0
 --- !u!1 &804094907
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,7 +931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &804094908
 RectTransform:
   m_ObjectHideFlags: 0
@@ -914,7 +971,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: instruction Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1001,6 +1058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1101036729}
   - component: {fileID: 1101036728}
+  - component: {fileID: 1101036730}
   m_Layer: 0
   m_Name: Flashlight
   m_TagString: Untagged
@@ -1075,6 +1133,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1985661547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &1101036730
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101036727}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.000001847633, y: -12.836793}
+  m_Size: {x: 5.36, y: 30.51439}
+  m_Direction: 0
 --- !u!1 &1233899344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1217,14 @@ PrefabInstance:
     - target: {fileID: 1504967468562061747, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
       propertyPath: instructionText
       value: Press E to Enter Living Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438571092433441908, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_Size.y
+      value: 4.7624264
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438571092433441908, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.3812132
       objectReference: {fileID: 0}
     - target: {fileID: 3438571092433441908, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
       propertyPath: m_IsTrigger
@@ -1195,6 +1296,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7638418488719994242, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
   m_PrefabInstance: {fileID: 6365207550550733094}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1523318512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665094274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9123050c208c72e45a0322a61119a90f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1705851455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,7 +1666,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6310619030012485035, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1523318512}
   m_SourcePrefab: {fileID: 100100000, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
