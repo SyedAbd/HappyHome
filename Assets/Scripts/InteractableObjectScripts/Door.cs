@@ -69,7 +69,7 @@ public class Door : MonoBehaviour
             }
 
             enterTextUI.gameObject.SetActive(true);
-            enterTextUI.enabled = true; 
+            enterTextUI.enabled = true;
         }
     }
 
