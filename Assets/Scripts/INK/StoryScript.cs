@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+// using TMPro;
 
 public class StoryScript : MonoBehaviour
 {
@@ -52,7 +52,7 @@ public class StoryScript : MonoBehaviour
             choiceButton.transform.SetParent(this.transform, false);
 
             // Find the TextMeshProUGUI component in the button prefab
-            TextMeshProUGUI choiceText = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
+            Text choiceText = choiceButton.GetComponentInChildren<Text>();
 
             if (choiceText != null)
             {
