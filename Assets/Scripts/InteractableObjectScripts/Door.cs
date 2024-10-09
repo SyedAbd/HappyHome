@@ -78,6 +78,7 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isNearDoor = false;
+            if(enterTextUI != null)
             enterTextUI.gameObject.SetActive(false);
         }
     }
