@@ -4,65 +4,81 @@ using TMPro;
 
 public class Door : MonoBehaviour
 {
-    public string targetScene;  // The scene to load when entering the door
-    public string instructionTextNoKey = "The door is locked.";  // Message if the player doesn't have the key
-    public string instructionTextWithKey = "Press E to unlock."; // Message if the player has the key
-    public TextMeshProUGUI enterTextUI;  // Reference to the TextMeshProUGUI component
-    private bool isNearDoor = false;  // Tracks if the player is near the door
-    private PlayerInventory playerInventory;  // Reference to the player's inventory (script handling key possession)
+    public string targetScene;
+    public string instructionTextNoKey = "The door is locked.";
+    public string instructionTextWithKey = "Press E to unlock.";
+    public string instructionTextNoKeyRequired = "Press E to open the door.";
+    public TextMeshProUGUI enterTextUI;
+    public bool requiresKey = true;
+    private bool isNearDoor = false;
+    private PlayerInventory playerInventory;
 
     void Start()
     {
-        // Ensure the instruction text is hidden at the start
         enterTextUI.gameObject.SetActive(false);
         enterTextUI.enabled = true;
     }
 
     void Update()
     {
-        // Check if the player is near the door and presses the 'E' key
         if (isNearDoor && Input.GetKeyDown(KeyCode.E))
         {
-            if (playerInventory.HasKey())  // Check if the player has the key
+            if (requiresKey)
             {
-                if (!string.IsNullOrEmpty(targetScene))
+                if (playerInventory.HasKey())
                 {
-                    SceneManager.LoadScene(targetScene);  // Load the specified scene
+                    OpenDoor();
                 }
             }
+            else
+            {
+                OpenDoor();
+            }
+        }
+    }
+
+    void OpenDoor()
+    {
+        if (!string.IsNullOrEmpty(targetScene))
+        {
+            SceneManager.LoadScene(targetScene);
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the player entered the door's trigger area
         if (other.CompareTag("Player"))
         {
             isNearDoor = true;
-            playerInventory = other.GetComponent<PlayerInventory>();  // Get the player's inventory (or key holding)
+            playerInventory = other.GetComponent<PlayerInventory>();
 
-            // Check if the player has the key
-            if (playerInventory != null && playerInventory.HasKey())
+            if (requiresKey)
             {
-                enterTextUI.text = instructionTextWithKey;
+                if (playerInventory != null && playerInventory.HasKey())
+                {
+                    enterTextUI.text = instructionTextWithKey;
+                }
+                else
+                {
+                    enterTextUI.text = instructionTextNoKey;
+                }
             }
             else
             {
-                enterTextUI.text = instructionTextNoKey;
+                enterTextUI.text = instructionTextNoKeyRequired;
             }
 
             enterTextUI.gameObject.SetActive(true);
-            enterTextUI.enabled = true;// Show the instruction text
+            enterTextUI.enabled = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        // Check if the player exited the door's trigger area
         if (other.CompareTag("Player"))
         {
             isNearDoor = false;
-            enterTextUI.gameObject.SetActive(false);  // Hide the instruction text
+            enterTextUI.gameObject.SetActive(false);
         }
     }
 }
