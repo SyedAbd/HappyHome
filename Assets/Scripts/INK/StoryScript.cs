@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-// using TMPro;
+//using TMPro;
 
 public class StoryScript : MonoBehaviour
 {
@@ -109,7 +109,7 @@ public class StoryScript : MonoBehaviour
         for(int i = 0;i < text.Length; i++)
         {
             storyText.text += text[i];
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.002f);
         }
 
         CreateButtons();
