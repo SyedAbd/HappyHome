@@ -2,39 +2,49 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    [Header("Spawn Points")]
     [SerializeField] private Transform hallwaySpawnPoint;
     [SerializeField] private Transform bedroomSpawnPoint;
     [SerializeField] private Transform livingRoomSpawnPoint;
     [SerializeField] private Transform bathroomSpawnPoint;
+
+    [Header("Rooms")]
+    [SerializeField] private GameObject hallway;
+    [SerializeField] private GameObject bedroom;
+    [SerializeField] private GameObject livingRoom;
+    [SerializeField] private GameObject bathroom;
+
     private Transform player;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        GotoHallway();
     }
 
     public void GotoHallway()
     {
-        TeleportPlayer(hallwaySpawnPoint);
+        TeleportAndActivateRoom(hallwaySpawnPoint, hallway);
     }
 
     public void GotoBedroom()
     {
-        TeleportPlayer(bedroomSpawnPoint);
+        TeleportAndActivateRoom(bedroomSpawnPoint, bedroom);
     }
 
     public void GotoLivingRoom()
     {
-        TeleportPlayer(livingRoomSpawnPoint);
+        TeleportAndActivateRoom(livingRoomSpawnPoint, livingRoom);
     }
 
     public void GotoBathroom()
     {
-        TeleportPlayer(bathroomSpawnPoint);
+        TeleportAndActivateRoom(bathroomSpawnPoint, bathroom);
     }
 
-    private void TeleportPlayer(Transform targetSpawnPoint)
+    private void TeleportAndActivateRoom(Transform targetSpawnPoint, GameObject targetRoom)
     {
+        // Teleport player to the target spawn point
         if (player != null && targetSpawnPoint != null)
         {
             player.position = targetSpawnPoint.position;
@@ -43,5 +53,13 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.LogWarning("Player or target spawn point is missing!");
         }
+
+        // Deactivate all rooms, then activate the target room
+        hallway.SetActive(false);
+        bedroom.SetActive(false);
+        livingRoom.SetActive(false);
+        bathroom.SetActive(false);
+
+        targetRoom.SetActive(true);
     }
 }
