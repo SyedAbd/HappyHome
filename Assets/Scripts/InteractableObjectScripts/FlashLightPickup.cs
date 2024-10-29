@@ -63,7 +63,7 @@ public class FlashlightPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isInRange = false;
-            interactionText.gameObject.SetActive(false);// Player is out of range
+            //interactionText.gameObject.SetActive(false);// Player is out of range
         }
     }
 }
