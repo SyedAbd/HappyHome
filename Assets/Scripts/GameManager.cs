@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject); // Destroy duplicate
+<<<<<<< Updated upstream
         }
     }
     public void Update()
@@ -58,6 +59,28 @@ public class GameManager : MonoBehaviour
             SceneManager.UnloadSceneAsync("Rooms_Scene");
         }
     }
+=======
+        }
+    }
+
+    // Method to load the Rooms scene in the background
+    public void LoadRoomScene()
+    {
+        if (!SceneManager.GetSceneByName("Rooms_Scene").isLoaded)
+        {
+            SceneManager.LoadSceneAsync("Rooms_Scene", LoadSceneMode.Additive);
+            SetActiveInRoomsScene(false);
+        }
+    }
+
+    public void UnloadRoomScene()
+    {
+        if (SceneManager.GetSceneByName("Rooms_Scene").isLoaded)
+        {
+            SceneManager.UnloadSceneAsync("Rooms_Scene");
+        }
+    }
+>>>>>>> Stashed changes
     public void SetActiveInRoomsScene(bool isActive)
     {
         Scene roomsScene = SceneManager.GetSceneByName("Rooms_Scene");

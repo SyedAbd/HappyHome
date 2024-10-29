@@ -102,7 +102,11 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("If condition of the Playhouse");
             GameManager.Instance.roomName = "Bedroom";
             GameManager.Instance.isToMove = true;
+<<<<<<< Updated upstream
             //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
+=======
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
+>>>>>>> Stashed changes
         }
 
         RefreshView();

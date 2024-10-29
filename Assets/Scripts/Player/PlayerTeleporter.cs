@@ -16,12 +16,38 @@ public class PlayerManager : MonoBehaviour
 
     private Transform player;
 
+    //private GameManager gameManager;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        //gameManager = GetComponent<GameManager>();
         GotoHallway();
-    }
 
+    }
+    public void Update()
+    {
+        if (GameManager.Instance.isToMove)
+        {
+            GameManager.Instance.isToMove = false;
+            switch (GameManager.Instance.roomName)
+            {
+                case "Bedroom":
+                    GotoBedroom();
+                    break;
+                case "Livingroom":
+                    GotoLivingRoom();
+                    break;
+                case "Bathroom":
+                    GotoBathroom();
+                    break;
+                default:
+                    GotoHallway();
+                    break;
+
+            }
+        }
+    }
     public void GotoHallway()
     {
         TeleportAndActivateRoom(hallwaySpawnPoint, hallway);
