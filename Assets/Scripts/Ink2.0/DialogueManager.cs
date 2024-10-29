@@ -69,13 +69,40 @@ public class DialogueManager : MonoBehaviour
         story.ChooseChoiceIndex(choice.index);
         SaveStoryState(); // Save the state before refreshing
 
-        if (choice.text.Trim() == "Hide in the playhouse")
+        if (choice.text.Contains("Living Room"))
         {
-            SceneManager.LoadScene("Living_Room");
+            GameManager.Instance.roomName = "Livingroom";
+            GameManager.Instance.isToMove = true;
+            GameManager.Instance.SetActiveInRoomsScene(true);
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
         }
-        else if (choice.text.Trim() == "Go to the Bedroom")
+        else if (choice.text.Contains("Bedroom"))
         {
-            SceneManager.LoadScene("Bedroom");
+            GameManager.Instance.roomName = "Bedroom";
+            GameManager.Instance.isToMove = true;
+            GameManager.Instance.SetActiveInRoomsScene(true);
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
+        }
+        else if (choice.text.Contains("Bathroom"))
+        {
+            GameManager.Instance.roomName = "Bathroom";
+            GameManager.Instance.isToMove = true;
+            GameManager.Instance.SetActiveInRoomsScene(true);
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
+        }
+        else if (choice.text.Contains("Hallway"))
+        {
+            GameManager.Instance.roomName = "Hallway";
+            GameManager.Instance.isToMove = true;
+            GameManager.Instance.SetActiveInRoomsScene(true);
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
+        }
+        else if (choice.text.Contains("playhouse"))
+        {
+            Debug.Log("If condition of the Playhouse");
+            GameManager.Instance.roomName = "Bedroom";
+            GameManager.Instance.isToMove = true;
+            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
         }
 
         RefreshView();

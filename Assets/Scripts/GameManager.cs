@@ -5,21 +5,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    private string roomName
-    {
-        get { return roomName; }
-        set { roomName = value; }
+    private string _roomName; // Private backing field for roomName
+    private bool _isToMove; // Private backing field for isToMove
 
-    }
-    private bool isToMove
+    public string roomName
     {
-        get { return isToMove; }
-        set { isToMove = value; }
-
+        get { return _roomName; }
+        set { _roomName = value; }
     }
-    // Variables to store the state of your items
-    //public bool hasKey;
-    //public bool isFlashlightPicked;
+
+    public bool isToMove
+    {
+        get { return _isToMove; }
+        set { _isToMove = value; }
+    }
 
     void Awake()
     {
@@ -27,17 +26,70 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            LoadRoomScene();
             DontDestroyOnLoad(gameObject); // Prevent this object from being destroyed on scene load
         }
         else
         {
-            //Destroy(gameObject); // Destroy duplicate
+            Destroy(gameObject); // Destroy duplicate
+        }
+    }
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode f))
+        {
+
+        }
+    }
+    // Method to load the Rooms scene in the background
+    public void LoadRoomScene()
+    {
+        if (!SceneManager.GetSceneByName("Rooms_Scene").isLoaded)
+        {
+            SceneManager.LoadSceneAsync("Rooms_Scene", LoadSceneMode.Additive);
+            SetActiveInRoomsScene(false);
         }
     }
 
-    public void ResetState()
+    public void UnloadRoomScene()
     {
-        //hasKey = false;
-        //isFlashlightPicked = false;
+        if (SceneManager.GetSceneByName("Rooms_Scene").isLoaded)
+        {
+            SceneManager.UnloadSceneAsync("Rooms_Scene");
+        }
     }
+    public void SetActiveInRoomsScene(bool isActive)
+    {
+        Scene roomsScene = SceneManager.GetSceneByName("Rooms_Scene");
+
+        if (roomsScene.isLoaded)
+        {
+            // Find the GameObject in the scene by tag or name
+            GameObject targetObject = null;
+
+            foreach (GameObject obj in roomsScene.GetRootGameObjects())
+            {
+                if (obj.CompareTag("ActiveOrInactive") || obj.name == "Active")
+                {
+                    targetObject = obj;
+                    break;
+                }
+            }
+
+            // Activate or deactivate the object
+            if (targetObject != null)
+            {
+                targetObject.SetActive(isActive);
+            }
+            else
+            {
+                Debug.LogWarning("GameObject with tag 'ActiveorInactive' or name 'Active' not found in Rooms_Scene.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Rooms_Scene is not loaded.");
+        }
+    }
+
 }
