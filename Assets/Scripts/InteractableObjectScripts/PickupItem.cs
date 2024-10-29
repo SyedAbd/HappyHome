@@ -37,7 +37,8 @@ public class PickupItem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 isPickedUp = true;
-                player.GetComponent<PlayerInventory>().PickUpKey();
+                player.GetComponent<PlayerInventory>().PickUpKey(gameObject,tag);
+                
                 //instructionText.gameObject.SetActive(false);
                 instructionText.text = "";
             }
