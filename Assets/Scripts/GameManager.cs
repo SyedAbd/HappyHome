@@ -5,9 +5,21 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    private string roomName
+    {
+        get { return roomName; }
+        set { roomName = value; }
+
+    }
+    private bool isToMove
+    {
+        get { return isToMove; }
+        set { isToMove = value; }
+
+    }
     // Variables to store the state of your items
-    public bool hasKey;
-    public bool isFlashlightPicked;
+    //public bool hasKey;
+    //public bool isFlashlightPicked;
 
     void Awake()
     {
@@ -19,13 +31,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // Destroy duplicate
+            //Destroy(gameObject); // Destroy duplicate
         }
     }
 
     public void ResetState()
     {
-        hasKey = false;
-        isFlashlightPicked = false;
+        //hasKey = false;
+        //isFlashlightPicked = false;
     }
 }
