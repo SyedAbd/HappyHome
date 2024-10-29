@@ -73,40 +73,38 @@ public class DialogueManager : MonoBehaviour
         {
             GameManager.Instance.roomName = "Livingroom";
             GameManager.Instance.isToMove = true;
-            GameManager.Instance.SetActiveInRoomsScene(true);
-            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
+            GameManager.Instance.ChnageSceneToRooms();
+            
         }
         else if (choice.text.Contains("Bedroom"))
         {
             GameManager.Instance.roomName = "Bedroom";
             GameManager.Instance.isToMove = true;
-            GameManager.Instance.SetActiveInRoomsScene(true);
-            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
+            GameManager.Instance.ChnageSceneToRooms();
+           
         }
         else if (choice.text.Contains("Bathroom"))
         {
             GameManager.Instance.roomName = "Bathroom";
             GameManager.Instance.isToMove = true;
-            GameManager.Instance.SetActiveInRoomsScene(true);
-            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
+            GameManager.Instance.ChnageSceneToRooms();
+           
         }
         else if (choice.text.Contains("Hallway"))
         {
             GameManager.Instance.roomName = "Hallway";
             GameManager.Instance.isToMove = true;
-            GameManager.Instance.SetActiveInRoomsScene(true);
-            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
+            GameManager.Instance.ChnageSceneToRooms();
+            
         }
         else if (choice.text.Contains("playhouse"))
         {
             Debug.Log("If condition of the Playhouse");
-            GameManager.Instance.roomName = "Bedroom";
+            GameManager.Instance.roomName = "Livingroom";
             GameManager.Instance.isToMove = true;
-<<<<<<< Updated upstream
-            //SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
-=======
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName("Rooms_Scene"));
->>>>>>> Stashed changes
+            GameManager.Instance.ChnageSceneToRooms();
+            
+
         }
 
         RefreshView();

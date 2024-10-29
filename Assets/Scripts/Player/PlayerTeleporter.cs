@@ -27,24 +27,27 @@ public class PlayerManager : MonoBehaviour
     }
     public void Update()
     {
-        if (GameManager.Instance.isToMove)
+        if (GameManager.Instance != null)
         {
-            GameManager.Instance.isToMove = false;
-            switch (GameManager.Instance.roomName)
+            if (GameManager.Instance.isToMove)
             {
-                case "Bedroom":
-                    GotoBedroom();
-                    break;
-                case "Livingroom":
-                    GotoLivingRoom();
-                    break;
-                case "Bathroom":
-                    GotoBathroom();
-                    break;
-                default:
-                    GotoHallway();
-                    break;
+                GameManager.Instance.isToMove = false;
+                switch (GameManager.Instance.roomName)
+                {
+                    case "Bedroom":
+                        GotoBedroom();
+                        break;
+                    case "Livingroom":
+                        GotoLivingRoom();
+                        break;
+                    case "Bathroom":
+                        GotoBathroom();
+                        break;
+                    default:
+                        GotoHallway();
+                        break;
 
+                }
             }
         }
     }
