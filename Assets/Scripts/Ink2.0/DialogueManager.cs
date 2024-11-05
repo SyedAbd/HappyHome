@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     public static event Action<Story> OnCreateStory;
     public Story story;
+    public float delay = 10f;
 
     void Awake()
     {
@@ -162,3 +163,4 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private Button buttonPrefab = null;
 }
+
