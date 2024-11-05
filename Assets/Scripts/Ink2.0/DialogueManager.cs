@@ -3,12 +3,17 @@ using Ink.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
     public static event Action<Story> OnCreateStory;
     public Story story;
     public float delay = 10f;
+
+    public float letterDelay = 0.05f; // Delay between each letter for typewriter effect
+
+    private string currentText;
 
     void Awake()
     {
@@ -35,7 +40,6 @@ public class DialogueManager : MonoBehaviour
 
         OnCreateStory?.Invoke(story);
         RefreshView();
-
     }
 
     void RefreshView()
@@ -75,28 +79,28 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.roomName = "Livingroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
-            
+
         }
         else if (choice.text.Contains("Bedroom"))
         {
             GameManager.Instance.roomName = "Bedroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
-           
+
         }
         else if (choice.text.Contains("Bathroom"))
         {
             GameManager.Instance.roomName = "Bathroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
-           
+
         }
         else if (choice.text.Contains("Hallway"))
         {
             GameManager.Instance.roomName = "Hallway";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
-            
+
         }
         else if (choice.text.Contains("playhouse"))
         {
@@ -104,12 +108,9 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.roomName = "Livingroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
-            
-
         }
 
         RefreshView();
-        //RefreshView();
     }
 
     void RestartStory()
@@ -129,8 +130,21 @@ public class DialogueManager : MonoBehaviour
     void CreateContentView(string text)
     {
         Text storyText = Instantiate(textPrefab) as Text;
-        storyText.text = text;
         storyText.transform.SetParent(canvas.transform, false);
+
+        // Start coroutine for the typewriter effect
+        StartCoroutine(TypeText(storyText, text));
+    }
+
+    // Coroutine to display text slowly (Typewriter Effect)
+    IEnumerator TypeText(Text storyText, string text)
+    {
+        storyText.text = ""; // Clear text initially
+        foreach (char letter in text.ToCharArray())
+        {
+            storyText.text += letter; // Add one letter at a time
+            yield return new WaitForSeconds(letterDelay); // Wait between letters
+        }
     }
 
     Button CreateChoiceView(string text)
@@ -163,4 +177,3 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private Button buttonPrefab = null;
 }
-
