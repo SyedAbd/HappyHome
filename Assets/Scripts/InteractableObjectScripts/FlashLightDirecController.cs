@@ -14,10 +14,6 @@ public class FlashLightDirecController : MonoBehaviour
     void Update()
     {
         movement = Input.GetAxis("Horizontal");
-
-        // Move the player
-        //transform.Translate(Vector3.right * movement * moveSpeed * Time.deltaTime);
-
       
         if (movement > 0)
         {
