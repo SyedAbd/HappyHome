@@ -145,8 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 10
-  letterDelay: 0.05
-  maxLength: 90
+  letterDelay: 0.01
   inkJSONAsset: {fileID: 4900000, guid: 13e4bd5411fe7704babec7ad79158877, type: 3}
   canvas: {fileID: 1081504863}
   textPrefab: {fileID: -5151042050377934239, guid: 106d9f3116403aa45b96aa09663dbdfe, type: 3}

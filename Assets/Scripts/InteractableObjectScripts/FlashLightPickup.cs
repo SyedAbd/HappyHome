@@ -14,8 +14,8 @@ public class FlashlightPickup : MonoBehaviour
 
     void Start()
     {
-        flashlightRenderer = GetComponent<Renderer>();  
-        flashlightCollider = GetComponent<Collider2D>();  
+        flashlightRenderer = GetComponent<Renderer>();
+        flashlightCollider = GetComponent<Collider2D>();
         //interactionText.gameObject.SetActive(false); 
     }
 

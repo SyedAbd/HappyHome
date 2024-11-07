@@ -1261,6 +1261,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1943833961}
     m_Modifications:
+    - target: {fileID: 2450083670036692271, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405282818568899707, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: maxAngleOffset
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 6310619030012485035, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
       propertyPath: m_Name
       value: Player
