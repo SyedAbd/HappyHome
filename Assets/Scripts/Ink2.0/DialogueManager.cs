@@ -83,13 +83,13 @@ public class DialogueManager : MonoBehaviour
         story.ChooseChoiceIndex(choice.index);
         SaveStoryState();
 
-        if (choice.text.Contains("Living Room"))
+        if (choice.text.Contains("Living Room") || choice.text.Contains("Enjoy the show") || choice.text.Contains("What happened?"))
         {
             GameManager.Instance.roomName = "Livingroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
         }
-        else if (choice.text.Contains("Bedroom"))
+        else if (choice.text.Contains("Bedroom") || choice.text.Contains("Go to bed"))
         {
             GameManager.Instance.roomName = "Bedroom";
             GameManager.Instance.isToMove = true;
