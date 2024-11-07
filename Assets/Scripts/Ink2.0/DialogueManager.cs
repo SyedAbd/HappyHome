@@ -24,19 +24,15 @@ public class DialogueManager : MonoBehaviour
 
     void StartStory()
     {
-        // Check if we're restarting or starting fresh
-        if (PlayerPrefs.HasKey("InkStoryState"))
-        {
-            // If we have a saved state, load it
-            string savedState = PlayerPrefs.GetString("InkStoryState", "");
-            story = new Story(inkJSONAsset.text);
-            story.state.LoadJson(savedState); // Load saved state
-        }
-        else
-        {
-            // Start a new story from the beginning
-            story = new Story(inkJSONAsset.text);
-        }
+        // Start a new story from the beginning
+        story = new Story(inkJSONAsset.text);
+
+        // If we were saving the story state, we'd do it here:
+        // if (PlayerPrefs.HasKey("InkStoryState"))
+        // {
+        //     string savedState = PlayerPrefs.GetString("InkStoryState", "");
+        //     story.state.LoadJson(savedState); // Load saved state
+        // }
 
         OnCreateStory?.Invoke(story);
         RefreshView();
@@ -72,35 +68,33 @@ public class DialogueManager : MonoBehaviour
     void OnClickChoiceButton(Choice choice)
     {
         story.ChooseChoiceIndex(choice.index);
-        SaveStoryState(); // Save the state before refreshing
+
+        // Save the state before refreshing
+        // SaveStoryState();
 
         if (choice.text.Contains("Living Room"))
         {
             GameManager.Instance.roomName = "Livingroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
-
         }
         else if (choice.text.Contains("Bedroom"))
         {
             GameManager.Instance.roomName = "Bedroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
-
         }
         else if (choice.text.Contains("Bathroom"))
         {
             GameManager.Instance.roomName = "Bathroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
-
         }
         else if (choice.text.Contains("Hallway"))
         {
             GameManager.Instance.roomName = "Hallway";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
-
         }
         else if (choice.text.Contains("playhouse"))
         {
@@ -116,16 +110,16 @@ public class DialogueManager : MonoBehaviour
     void RestartStory()
     {
         // Clear saved state to start from the beginning
-        PlayerPrefs.DeleteKey("InkStoryState");
+        // PlayerPrefs.DeleteKey("InkStoryState");
         StartStory(); // Call StartStory to restart
     }
 
-    void SaveStoryState()
-    {
-        string stateJson = story.state.ToJson();
-        PlayerPrefs.SetString("InkStoryState", stateJson);
-        PlayerPrefs.Save();
-    }
+    // void SaveStoryState()
+    // {
+    //     string stateJson = story.state.ToJson();
+    //     PlayerPrefs.SetString("InkStoryState", stateJson);
+    //     PlayerPrefs.Save();
+    // }
 
     void CreateContentView(string text)
     {
@@ -136,7 +130,6 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeText(storyText, text));
     }
 
-    // Coroutine to display text slowly (Typewriter Effect)
     IEnumerator TypeText(Text storyText, string text)
     {
         storyText.text = ""; // Clear text initially
