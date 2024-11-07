@@ -127,7 +127,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4124203309174961436, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
   m_PrefabInstance: {fileID: 3271767157948225198}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &351365852
+--- !u!4 &351365854 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1773831577923383735, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
+  m_PrefabInstance: {fileID: 3271767157948225198}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &351365856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,17 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de41c22f4c07f624398348d7ff1fa96b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
-  letterDelay: 0.01
+  delay: 10
+  letterDelay: 0.05
+  maxLength: 90
   inkJSONAsset: {fileID: 4900000, guid: 13e4bd5411fe7704babec7ad79158877, type: 3}
   canvas: {fileID: 1081504863}
-  textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
+  textPrefab: {fileID: -5151042050377934239, guid: 106d9f3116403aa45b96aa09663dbdfe, type: 3}
   buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
---- !u!4 &351365854 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1773831577923383735, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
-  m_PrefabInstance: {fileID: 3271767157948225198}
-  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &566429705
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -624,6 +625,14 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7210688265553885186, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210688265553885186, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210688265553885186, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
       propertyPath: m_Padding.m_Bottom
       value: 10
       objectReference: {fileID: 0}
@@ -661,7 +670,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4124203309174961436, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 351365852}
+      addedObject: {fileID: 351365856}
     - targetCorrespondingSourceObject: {fileID: 519196644301826871, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1081504869}

@@ -5,15 +5,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManagerTransitionColor : MonoBehaviour
 {
     public static event Action<Story> OnCreateStory;
     public Story story;
-    public float delay = 10f;
 
-    public float letterDelay = 0.05f; // Delay between each letter for typewriter effect
     private string currentText;
     private List<string> storyLines = new List<string>(); // Store each line of story to show one by one
 
@@ -27,13 +24,6 @@ public class DialogueManager : MonoBehaviour
     {
         // Start a new story from the beginning
         story = new Story(inkJSONAsset.text);
-
-        // If we were saving the story state, we'd do it here:
-        // if (PlayerPrefs.HasKey("InkStoryState"))
-        // {
-        //     string savedState = PlayerPrefs.GetString("InkStoryState", "");
-        //     story.state.LoadJson(savedState); // Load saved state
-        // }
 
         OnCreateStory?.Invoke(story);
         RefreshView();
@@ -51,15 +41,14 @@ public class DialogueManager : MonoBehaviour
             storyLines.Add(text); // Add each line to storyLines list
         }
 
-        StartCoroutine(ShowStorySequentially());
+        ShowStoryImmediately();
     }
 
-    IEnumerator ShowStorySequentially()
+    void ShowStoryImmediately()
     {
         foreach (var line in storyLines)
         {
-            yield return StartCoroutine(CreateContentView(line));
-            yield return new WaitForSeconds(0.5f); // Optional delay between text boxes
+            CreateContentView(line); // Display each line immediately
         }
 
         if (story.currentChoices.Count > 0)
@@ -81,9 +70,6 @@ public class DialogueManager : MonoBehaviour
     void OnClickChoiceButton(Choice choice)
     {
         story.ChooseChoiceIndex(choice.index);
-
-        // Save the state before refreshing
-        // SaveStoryState();
 
         if (choice.text.Contains("Living Room") || choice.text.Contains("Enjoy the show") || choice.text.Contains("What happened?"))
         {
@@ -122,34 +108,14 @@ public class DialogueManager : MonoBehaviour
 
     void RestartStory()
     {
-        // Clear saved state to start from the beginning
-        // PlayerPrefs.DeleteKey("InkStoryState");
         StartStory(); // Call StartStory to restart
     }
 
-    // void SaveStoryState()
-    // {
-    //     string stateJson = story.state.ToJson();
-    //     PlayerPrefs.SetString("InkStoryState", stateJson);
-    //     PlayerPrefs.Save();
-    // }
-
-    IEnumerator CreateContentView(string text)
+    void CreateContentView(string text)
     {
-        TMPro.TextMeshProUGUI storyText = Instantiate(textPrefab);
+        Text storyText = Instantiate(textPrefab) as Text;
         storyText.transform.SetParent(canvas.transform, false);
-
-        yield return StartCoroutine(TypeText(storyText, text)); // Wait for typewriter effect to complete
-    }
-
-    IEnumerator TypeText(TMPro.TextMeshProUGUI storyText, string text)
-    {
-        storyText.text = ""; // Clear text initially
-        foreach (char letter in text.ToCharArray())
-        {
-            storyText.text += letter;
-            yield return new WaitForSeconds(letterDelay); // Wait between letters
-        }
+        storyText.text = text; // Immediately set the full text without delays
     }
 
     Button CreateChoiceView(string text)
@@ -178,7 +144,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private Canvas canvas = null;
     [SerializeField]
-    private TMPro.TextMeshProUGUI textPrefab = null;
+    private Text textPrefab = null;
     [SerializeField]
     private Button buttonPrefab = null;
 }
