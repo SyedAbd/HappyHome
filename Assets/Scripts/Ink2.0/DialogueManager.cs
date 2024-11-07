@@ -1,20 +1,17 @@
 using System;
+using System.Collections;
 using Ink.Runtime;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
     public static event Action<Story> OnCreateStory;
     public Story story;
-    public float delay = 10f;
-
     public float letterDelay = 0.05f; // Delay between each letter for typewriter effect
+
     private string currentText;
-    private List<string> storyLines = new List<string>(); // Store each line of story to show one by one
+    private Text storyText; // Single story text box
 
     void Awake()
     {
@@ -42,39 +39,52 @@ public class DialogueManager : MonoBehaviour
     void RefreshView()
     {
         RemoveChildren();
-        storyLines.Clear();
 
-        while (story.canContinue)
-        {
-            string text = story.Continue();
-            text = text.Trim();
-            storyLines.Add(text); // Add each line to storyLines list
-        }
+        // Create and set up the single text box for displaying story content
+        storyText = Instantiate(textPrefab) as Text;
+        storyText.transform.SetParent(canvas.transform, false);
+        storyText.text = ""; // Start with an empty text box
 
-        StartCoroutine(ShowStorySequentially());
+        StartCoroutine(DisplayStorySection());
     }
 
-    IEnumerator ShowStorySequentially()
+    IEnumerator DisplayStorySection()
     {
-        foreach (var line in storyLines)
+        storyText.text = ""; // Clear previous section's text
+
+        // Continue story to get the next section and reveal it line-by-line
+        while (story.canContinue)
         {
-            yield return StartCoroutine(CreateContentView(line));
-            yield return new WaitForSeconds(0.5f); // Optional delay between text boxes
+            string nextLine = story.Continue().Trim(); // Get the next line of the current section
+            yield return StartCoroutine(RevealText(nextLine));
+
+            // Add a line break between story lines to enhance readability
+            storyText.text += "\n";
+            yield return new WaitForSeconds(0.3f); // Pause briefly between lines
         }
 
+        // Display choices if there are any at the end of the story section
         if (story.currentChoices.Count > 0)
         {
-            for (int i = 0; i < story.currentChoices.Count; i++)
+            foreach (Choice choice in story.currentChoices)
             {
-                Choice choice = story.currentChoices[i];
-                Button button = CreateChoiceView(choice.text.Trim());
-                button.onClick.AddListener(delegate { OnClickChoiceButton(choice); });
+                Button choiceButton = CreateChoiceView(choice.text.Trim());
+                choiceButton.onClick.AddListener(delegate { OnClickChoiceButton(choice); });
             }
         }
         else
         {
-            Button choice = CreateChoiceView("End of story.\nRestart?");
-            choice.onClick.AddListener(delegate { RestartStory(); });
+            Button restartButton = CreateChoiceView("End of story.\nRestart?");
+            restartButton.onClick.AddListener(delegate { RestartStory(); });
+        }
+    }
+
+    IEnumerator RevealText(string line)
+    {
+        foreach (char letter in line)
+        {
+            storyText.text += letter; // Append one letter at a time
+            yield return new WaitForSeconds(letterDelay); // Wait for the set delay
         }
     }
 
@@ -82,39 +92,6 @@ public class DialogueManager : MonoBehaviour
     {
         story.ChooseChoiceIndex(choice.index);
         SaveStoryState();
-
-        if (choice.text.Contains("Living Room") || choice.text.Contains("Enjoy the show") || choice.text.Contains("What happened?"))
-        {
-            GameManager.Instance.roomName = "Livingroom";
-            GameManager.Instance.isToMove = true;
-            GameManager.Instance.ChnageSceneToRooms();
-        }
-        else if (choice.text.Contains("Bedroom") || choice.text.Contains("Go to bed"))
-        {
-            GameManager.Instance.roomName = "Bedroom";
-            GameManager.Instance.isToMove = true;
-            GameManager.Instance.ChnageSceneToRooms();
-        }
-        else if (choice.text.Contains("Bathroom"))
-        {
-            GameManager.Instance.roomName = "Bathroom";
-            GameManager.Instance.isToMove = true;
-            GameManager.Instance.ChnageSceneToRooms();
-        }
-        else if (choice.text.Contains("Hallway"))
-        {
-            GameManager.Instance.roomName = "Hallway";
-            GameManager.Instance.isToMove = true;
-            GameManager.Instance.ChnageSceneToRooms();
-        }
-        else if (choice.text.Contains("playhouse"))
-        {
-            Debug.Log("If condition of the Playhouse");
-            GameManager.Instance.roomName = "Livingroom";
-            GameManager.Instance.isToMove = true;
-            GameManager.Instance.ChnageSceneToRooms();
-        }
-
         RefreshView();
     }
 
@@ -131,33 +108,12 @@ public class DialogueManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    IEnumerator CreateContentView(string text)
-    {
-        Text storyText = Instantiate(textPrefab) as Text;
-        storyText.transform.SetParent(canvas.transform, false);
-
-        yield return StartCoroutine(TypeText(storyText, text)); // Wait for typewriter effect to complete
-    }
-
-    IEnumerator TypeText(Text storyText, string text)
-    {
-        storyText.text = ""; // Clear text initially
-        foreach (char letter in text.ToCharArray())
-        {
-            storyText.text += letter;
-            yield return new WaitForSeconds(letterDelay); // Wait between letters
-        }
-    }
-
     Button CreateChoiceView(string text)
     {
         Button choice = Instantiate(buttonPrefab) as Button;
         choice.transform.SetParent(canvas.transform, false);
         Text choiceText = choice.GetComponentInChildren<Text>();
         choiceText.text = text;
-        HorizontalLayoutGroup layoutGroup = choice.GetComponent<HorizontalLayoutGroup>();
-        layoutGroup.childForceExpandHeight = false;
-
         return choice;
     }
 
