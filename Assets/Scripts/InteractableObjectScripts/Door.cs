@@ -54,6 +54,7 @@ public class Door : MonoBehaviour
                 if (playerInventory != null && playerInventory.HasKey(requiredKeyTag.ToString()))
                 {
                     playerInventory.UseKey();
+                    requiresKey = false;
                     OpenDoor();
                 }
                 else

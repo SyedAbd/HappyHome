@@ -9,6 +9,7 @@ TagManager:
   - Hallwaykey
   - BathroomKey
   - LivingroomKey
+  - ActiveOrInactive
   layers:
   - Default
   - TransparentFX
