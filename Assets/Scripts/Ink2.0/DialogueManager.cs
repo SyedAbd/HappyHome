@@ -122,13 +122,17 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
         }
-        else if (choice.text.Contains("playhouse"))
+
+        /* NOTE! For testing purposes only
+         * 
+         * else if (choice.text.Contains("playhouse"))
         {
             Debug.Log("If condition of the Playhouse");
             GameManager.Instance.roomName = "Livingroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
         }
+        */
 
         StartCoroutine(ContinueTheStory());
         

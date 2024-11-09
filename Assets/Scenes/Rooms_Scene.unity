@@ -525,6 +525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestingBackLogic
       objectReference: {fileID: 0}
+    - target: {fileID: 4140715777121845517, guid: 7c2aaade92c30514284ae346b8eed8e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
