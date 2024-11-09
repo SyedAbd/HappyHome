@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     private string _roomName; // Private backing field for roomName
     private bool _isToMove; // Private backing field for isToMove
 
+    private DialogueManager dialogueManager;
+    private GameObject sceneController;
     public string roomName
     {
         get { return _roomName; }
@@ -19,7 +21,10 @@ public class GameManager : MonoBehaviour
         get { return _isToMove; }
         set { _isToMove = value; }
     }
-
+    private void Start()
+    {
+        GameObject sceneController = GameObject.Find("SceneController");
+    }
     void Awake()
     {
         // Ensure this manager persists across scenes
@@ -47,12 +52,22 @@ public class GameManager : MonoBehaviour
         isInkActive = false;
         SetActiveInRoomsScene(true);
         SetActiveInkScene(false);
+       
+        
     }
     public void ChangeSceneToink()
     {
         isInkActive = true;
         SetActiveInRoomsScene(false);
         SetActiveInkScene(true);
+
+        //if (sceneController != null)
+        //{
+        //    dialogueManager = sceneController.GetComponent<DialogueManager>();
+        //    dialogueManager.ContinueTheStory();
+
+        //}
+
     }
     // Method to load the Rooms scene in the background
     public void LoadRoomScene()

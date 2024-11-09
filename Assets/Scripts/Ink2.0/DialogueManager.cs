@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,10 +18,22 @@ public class DialogueManager : MonoBehaviour
     private string currentText;
     private List<string> storyLines = new List<string>(); // Store each line of story to show one by one
 
+    private bool firstTimeContinuingStory = true;
+    public GameObject isSceneActive;
+
     void Awake()
     {
-        RemoveChildren();
-        StartStory();
+        if (firstTimeContinuingStory)
+        {
+            Debug.Log("Awake first time");
+            RemoveChildren();
+            StartStory();
+            firstTimeContinuingStory = false;
+        }
+        else {
+            Debug.Log("Awake second time");
+            //RefreshView(); 
+        }
     }
 
     void StartStory()
@@ -117,9 +130,19 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.ChnageSceneToRooms();
         }
 
+        StartCoroutine(ContinueTheStory());
+        
+
+    }
+    IEnumerator ContinueTheStory()
+    {
+
+        while (canvas != null && !isSceneActive.gameObject.activeSelf)
+        {
+            yield return null; // Wait for the next frame
+        }
         RefreshView();
     }
-
     void RestartStory()
     {
         // Clear saved state to start from the beginning
