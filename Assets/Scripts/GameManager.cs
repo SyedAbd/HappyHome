@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         if(isInkActive)
         {
             SetActiveInRoomsScene(false);
+            SetActiveInTutorial(false);
         }
     }
 
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
         Play_Animation_Fade("from_black");
         isInkActive = false;
         SetActiveInTutorial(true);
+        SetActiveInRoomsScene(false);
         SetActiveInkScene(false);
 
     }
@@ -72,6 +74,7 @@ public class GameManager : MonoBehaviour
         //Play_Animation_Fade("from_black");
         isInkActive = true;
         SetActiveInTutorial(false);
+        SetActiveInRoomsScene(false);
         UnloadTutorialScene();
         SetActiveInkScene(true);
 
@@ -82,6 +85,7 @@ public class GameManager : MonoBehaviour
 
         isInkActive = true;
         SetActiveInRoomsScene(false);
+        SetActiveInTutorial(false);
         SetActiveInkScene(true);
 
         //if (sceneController != null)
@@ -190,6 +194,7 @@ public class GameManager : MonoBehaviour
 
         if (TutorialScene.isLoaded)
         {
+            Debug.Log("in the active obj in tutorial scene");
             // Find the GameObject in the scene by tag or name
             GameObject targetObject = null;
 
@@ -197,6 +202,7 @@ public class GameManager : MonoBehaviour
             {
                 if (obj.CompareTag("ActiveOrInactive") || obj.name == "Active")
                 {
+                    Debug.Log("Found the active obj in tutorial scene");
                     targetObject = obj;
                     break;
                 }
