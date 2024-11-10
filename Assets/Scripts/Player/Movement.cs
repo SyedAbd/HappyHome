@@ -52,8 +52,8 @@ public class PlayerController : MonoBehaviour
         // If fear level is above the threshold, freeze player and show prompt
         if (fearLevel > fearThreshold)
         {
-            canMove = false;
-            fearPromptText.text = "Point your flashlight at the object that you are scared of";
+            //canMove = false;
+            fearPromptText.text = "Get the FlashLight and point it at scary thing otherwise youll pass out";
         }
         else
         {
