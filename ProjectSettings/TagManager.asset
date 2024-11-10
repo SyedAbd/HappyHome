@@ -10,6 +10,7 @@ TagManager:
   - BathroomKey
   - LivingroomKey
   - ActiveOrInactive
+  - ScarySpider
   layers:
   - Default
   - TransparentFX

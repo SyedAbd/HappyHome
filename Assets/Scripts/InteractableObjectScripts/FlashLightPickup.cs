@@ -12,10 +12,12 @@ public class FlashlightPickup : MonoBehaviour
     private Renderer flashlightRenderer;  // To hide the flashlight object
     private Collider2D flashlightCollider;  // To disable interaction after picking it up
 
+    public GameObject flashLightStatus;
+
     void Start()
     {
-        flashlightRenderer = GetComponent<Renderer>();  
-        flashlightCollider = GetComponent<Collider2D>();  
+        flashlightRenderer = GetComponent<Renderer>();
+        flashlightCollider = GetComponent<Collider2D>();
         //interactionText.gameObject.SetActive(false); 
     }
 
@@ -29,6 +31,7 @@ public class FlashlightPickup : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 PickUpFlashlight();
+                flashLightStatus.gameObject.SetActive(true);    
             }
         }
         else if (!isInRange || isPickedUp)

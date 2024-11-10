@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,9 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool isInkActive = true;
+    public Animator animator_canvas; // Canvas animator for fading animation control
     private string _roomName; // Private backing field for roomName
     private bool _isToMove; // Private backing field for isToMove
 
+    private DialogueManager dialogueManager;
+    private GameObject sceneController;
     public string roomName
     {
         get { return _roomName; }
@@ -19,7 +23,10 @@ public class GameManager : MonoBehaviour
         get { return _isToMove; }
         set { _isToMove = value; }
     }
-
+    private void Start()
+    {
+        GameObject sceneController = GameObject.Find("SceneController");
+    }
     void Awake()
     {
         // Ensure this manager persists across scenes
@@ -44,16 +51,54 @@ public class GameManager : MonoBehaviour
 
     public void ChnageSceneToRooms()
     {
+        Play_Animation_Fade("from_black");
+
         isInkActive = false;
         SetActiveInRoomsScene(true);
         SetActiveInkScene(false);
     }
     public void ChangeSceneToink()
     {
+        Play_Animation_Fade("from_black");
+
         isInkActive = true;
         SetActiveInRoomsScene(false);
         SetActiveInkScene(true);
+
+        //if (sceneController != null)
+        //{
+        //    dialogueManager = sceneController.GetComponent<DialogueManager>();
+        //    dialogueManager.ContinueTheStory();
+
+        //}
+
     }
+
+    // Start a fading animation coroutine
+    public void Play_Animation_Fade(string choice)
+	{
+        StartCoroutine(Animation_Fade(choice));
+    }
+
+    IEnumerator Animation_Fade(string choice)
+	{
+        // Trigger the fade animation
+        switch(choice)
+		{
+            case "from_black":
+                animator_canvas.SetTrigger("Fade_From_Black");
+                break;
+            case "to_black":
+                animator_canvas.SetTrigger("Fade_To_Black");
+                break;
+            default:
+                animator_canvas.SetTrigger("Fade_From_Black");
+                break;
+        }
+
+        yield return null;
+	}
+
     // Method to load the Rooms scene in the background
     public void LoadRoomScene()
     {
