@@ -122,6 +122,12 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
         }
+        else if (choice.text.Contains("Tutorial"))
+        {
+            GameManager.Instance.roomName = "Hallway";
+            GameManager.Instance.isToMove = true;
+            GameManager.Instance.ChnageSceneToTutorial();
+        }
 
         /* NOTE! For testing purposes only
          * 

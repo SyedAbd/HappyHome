@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             LoadRoomScene();
+            LoadTutorialScene();
             DontDestroyOnLoad(gameObject); // Prevent this object from being destroyed on scene load
         }
         else
@@ -56,6 +57,24 @@ public class GameManager : MonoBehaviour
         isInkActive = false;
         SetActiveInRoomsScene(true);
         SetActiveInkScene(false);
+    }
+
+    public void ChnageSceneToTutorial()
+    {
+        Play_Animation_Fade("from_black");
+        isInkActive = false;
+        SetActiveInTutorial(true);
+        SetActiveInkScene(false);
+
+    }
+    public void ChnageSceneToInkFromTutorial()
+    {
+        //Play_Animation_Fade("from_black");
+        isInkActive = true;
+        SetActiveInTutorial(false);
+        UnloadTutorialScene();
+        SetActiveInkScene(true);
+
     }
     public void ChangeSceneToink()
     {
@@ -108,6 +127,14 @@ public class GameManager : MonoBehaviour
             SetActiveInRoomsScene(false);
         }
     }
+    public void LoadTutorialScene()
+    {
+        if (!SceneManager.GetSceneByName("Tutorial_Scene").isLoaded)
+        {
+            SceneManager.LoadSceneAsync("Tutorial_Scene", LoadSceneMode.Additive);
+            SetActiveInTutorial(false);
+        }
+    }
 
     public void UnloadRoomScene()
     {
@@ -116,7 +143,13 @@ public class GameManager : MonoBehaviour
             SceneManager.UnloadSceneAsync("Rooms_Scene");
         }
     }
-
+    public void UnloadTutorialScene()
+    {
+        if (SceneManager.GetSceneByName("Tutorial_Scene").isLoaded)
+        {
+            SceneManager.UnloadSceneAsync("Tutorial_Scene");
+        }
+    }
     public void SetActiveInRoomsScene(bool isActive)
     {
         Scene roomsScene = SceneManager.GetSceneByName("Rooms_Scene");
@@ -150,6 +183,42 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Rooms_Scene is not loaded.");
         }
     }
+
+    public void SetActiveInTutorial(bool isActive)
+    {
+        Scene roomsScene = SceneManager.GetSceneByName("Tutorial_Scene");
+
+        if (roomsScene.isLoaded)
+        {
+            // Find the GameObject in the scene by tag or name
+            GameObject targetObject = null;
+
+            foreach (GameObject obj in roomsScene.GetRootGameObjects())
+            {
+                if (obj.CompareTag("ActiveOrInactive") || obj.name == "Active")
+                {
+                    targetObject = obj;
+                    break;
+                }
+            }
+
+            // Activate or deactivate the object
+            if (targetObject != null)
+            {
+                targetObject.SetActive(isActive);
+            }
+            else
+            {
+                Debug.LogWarning("GameObject with tag 'ActiveorInactive' or name 'Active' not found in Rooms_Scene.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Tutorial_Scene is not loaded.");
+        }
+    }
+
+    
     public void SetActiveInkScene(bool isActive)
     {
         Scene inkScene = SceneManager.GetSceneByName("Ink_Narrative_Scene");
