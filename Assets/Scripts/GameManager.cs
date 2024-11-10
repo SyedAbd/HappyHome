@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool isInkActive = true;
+    public bool isTutorialActive = false;
+    public bool isRoomsActive = false;
     public Animator animator_canvas; // Canvas animator for fading animation control
     private string _roomName; // Private backing field for roomName
     private bool _isToMove; // Private backing field for isToMove
@@ -49,13 +51,27 @@ public class GameManager : MonoBehaviour
             SetActiveInRoomsScene(false);
             SetActiveInTutorial(false);
         }
+        else if (isRoomsActive)
+        {
+            SetActiveInTutorial(false);
+            SetActiveInkScene(false);
+
+        }
+        else if (isTutorialActive)
+        {
+            SetActiveInRoomsScene(false);
+            SetActiveInkScene(false);
+
+        }
     }
 
     public void ChnageSceneToRooms()
     {
         Play_Animation_Fade("from_black");
-
+        
         isInkActive = false;
+        isTutorialActive = false;
+        isRoomsActive = true;
         SetActiveInRoomsScene(true);
         SetActiveInkScene(false);
     }
@@ -64,6 +80,8 @@ public class GameManager : MonoBehaviour
     {
         Play_Animation_Fade("from_black");
         isInkActive = false;
+        isRoomsActive=false;
+        isTutorialActive = true;
         SetActiveInTutorial(true);
         SetActiveInRoomsScene(false);
         SetActiveInkScene(false);
@@ -72,6 +90,8 @@ public class GameManager : MonoBehaviour
     public void ChnageSceneToInkFromTutorial()
     {
         //Play_Animation_Fade("from_black");
+        isTutorialActive = false;
+        isRoomsActive=false;
         isInkActive = true;
         SetActiveInTutorial(false);
         SetActiveInRoomsScene(false);
@@ -82,7 +102,8 @@ public class GameManager : MonoBehaviour
     public void ChangeSceneToink()
     {
         Play_Animation_Fade("from_black");
-
+        isRoomsActive = false;
+        isTutorialActive=false;
         isInkActive = true;
         SetActiveInRoomsScene(false);
         SetActiveInTutorial(false);
