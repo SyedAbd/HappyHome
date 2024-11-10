@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7344463073030895711}
   - component: {fileID: 5405282818568899707}
   - component: {fileID: 2450083670036692271}
+  - component: {fileID: 3730153315644434023}
   m_Layer: 0
   m_Name: FlashPoint
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7638418488719994242}
-  maxAngleOffset: 45
+  maxAngleOffset: -2
 --- !u!114 &2450083670036692271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +62,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+--- !u!114 &3730153315644434023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344748715541148778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0845250f9ffb74a917bad60d5a98fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashlight: {fileID: 4940250980180913369}
+  promptText: {fileID: 0}
+  batteryFillImage: {fileID: 0}
+  displayDuration: 3
+  maxUsageTime: 5
+  depletionRate: 0.1
+  rechargeRate: 0.05
 --- !u!1 &4940250980180913369
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,7 +97,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6216898047853622513
 Transform:
   m_ObjectHideFlags: 0
@@ -386,6 +406,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  isInFear: 0
+  fearLevel: 0
+  fearIncreaseRate: 0.2
+  fearDecreaseRate: 0.1
+  fearThreshold: 0.7
+  fearFillImage: {fileID: 0}
+  fearPromptText: {fileID: 0}
 --- !u!50 &232308672905555940
 Rigidbody2D:
   serializedVersion: 4
