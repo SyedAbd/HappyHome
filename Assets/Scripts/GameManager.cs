@@ -186,14 +186,14 @@ public class GameManager : MonoBehaviour
 
     public void SetActiveInTutorial(bool isActive)
     {
-        Scene roomsScene = SceneManager.GetSceneByName("Tutorial_Scene");
+        Scene TutorialScene = SceneManager.GetSceneByName("Tutorial_Scene");
 
-        if (roomsScene.isLoaded)
+        if (TutorialScene.isLoaded)
         {
             // Find the GameObject in the scene by tag or name
             GameObject targetObject = null;
 
-            foreach (GameObject obj in roomsScene.GetRootGameObjects())
+            foreach (GameObject obj in TutorialScene.GetRootGameObjects())
             {
                 if (obj.CompareTag("ActiveOrInactive") || obj.name == "Active")
                 {
