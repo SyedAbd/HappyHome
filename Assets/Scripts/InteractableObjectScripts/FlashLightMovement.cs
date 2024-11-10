@@ -2,62 +2,69 @@ using UnityEngine;
 
 public class FlashLightMovement : MonoBehaviour
 {
-    public Transform player; // Reference to the player Transform
-    public float maxAngleOffset = 45f; // Maximum angle offset from the player's forward direction
+    public Transform player;              // Reference to the player Transform
+    public float maxAngleOffset = 45f;    // Maximum angle offset from player's forward direction (45 degrees up/down)
+    private bool isFacingRight = true;    // Track the player's facing direction
 
     void Update()
     {
-        // Check if there is an active main camera
-        if (Camera.main != null)
+        // Get player's movement input
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        // Update facing direction based on input
+        if (horizontalInput > 0)
         {
-            // Get the mouse position in screen space
-            Vector3 mousePosition = Input.mousePosition;
-
-            // Convert the mouse position to world space using the active main camera
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
-            worldMousePosition.z = 0; // Ensure the z-position is 0
-
-            // Calculate the direction vector from the player to the mouse position
-            Vector3 direction = worldMousePosition - player.position;
-
-            // Calculate the angle in degrees
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            // Determine if the player is facing right (positive x) or left (negative x)
-            bool isFacingRight = player.localScale.x >= 0;
-
-            // Adjust the angle based on the player's direction
-            if (!isFacingRight)
-            {
-                // If facing left, invert the angle by adding 180 degrees
-                angle += 180f;
-            }
-
-            // Calculate the player's facing direction in the local scale
-            float playerFacingAngle = isFacingRight ? 0 : 180; // 0 if facing right, 180 if facing left
-
-            // Determine the clamped angle limits based on the player's facing direction
-            float minAngle = playerFacingAngle - maxAngleOffset;
-            float maxAngle = playerFacingAngle + maxAngleOffset;
-
-            // Normalize the angles to the range [0, 360)
-            float normalizedAngle = NormalizeAngle(angle);
-            float normalizedMinAngle = NormalizeAngle(minAngle);
-            float normalizedMaxAngle = NormalizeAngle(maxAngle);
-
-            // Clamp the angle to the specified range
-            float clampedAngle = Mathf.Clamp(normalizedAngle, normalizedMinAngle, normalizedMaxAngle);
-
-            // Set the rotation of the flashlight
-            transform.rotation = Quaternion.Euler(0, 0, clampedAngle);
+            isFacingRight = true;
         }
+        else if (horizontalInput < 0)
+        {
+            isFacingRight = false;
+        }
+
+        // Set angle limits based on the direction the player is facing
+        float minAngle, maxAngle;
+        if (isFacingRight)
+        {
+            minAngle = 315f; // Right-facing angle range (315° to 45°)
+            maxAngle = 45f;
+        }
+        else
+        {
+            minAngle = 135f; // Left-facing angle range (135° to 225°)
+            maxAngle = 225f;
+        }
+
+        // Get the direction vector from player to the mouse position in world space
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane));
+        Vector3 direction = worldMousePosition - player.position;
+
+        // Calculate the angle between player and the mouse position
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Adjust the angle to stay within the set range
+        angle = ClampAngleToRange(angle, minAngle, maxAngle);
+
+        // Set the flashlight rotation
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    // Normalize an angle to be within 0 to 360 degrees
-    private float NormalizeAngle(float angle)
+    // Helper function to clamp angles within specified min and max range
+    private float ClampAngleToRange(float angle, float min, float max)
     {
-        while (angle < 0) angle += 360;
-        while (angle >= 360) angle -= 360;
-        return angle;
+        // Normalize angle to range [0, 360)
+        angle = (angle + 360) % 360;
+
+        // Handle wrapping for right-facing (315° to 45°)
+        if (min > max)
+        {
+            if (angle > 180)
+                return Mathf.Max(angle, min);
+            else
+                return Mathf.Min(angle, max);
+        }
+
+        // Standard clamping for left-facing (135° to 225°)
+        return Mathf.Clamp(angle, min, max);
     }
 }
