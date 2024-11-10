@@ -1,0 +1,1 @@
+Walk starts with the "1 - Walk Start" which goes into "2 - Walk phase 1" and then "3 - Walk End Loop". If the player walks for longer than the first 2 animation sets play then the 3rd one "Walk End Loop" should replay over and over again until the player stops.
