@@ -98,13 +98,13 @@ public class DialogueManager : MonoBehaviour
         // Save the state before refreshing
         // SaveStoryState();
 
-        if (choice.text.Contains("Living Room") || choice.text.Contains("Enjoy the show") || choice.text.Contains("What happened?"))
+        if ( choice.text.Contains("Living Room") || choice.text.Contains("Enjoy the show") || choice.text.Contains("What happened?"))
         {
             GameManager.Instance.roomName = "Livingroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
         }
-        else if (choice.text.Contains("Bedroom") || choice.text.Contains("Go to bed"))
+        else if (choice.text.Contains("Bedroom") ||  choice.text.Contains("Go to bed"))
         {
             GameManager.Instance.roomName = "Bedroom";
             GameManager.Instance.isToMove = true;
@@ -122,7 +122,13 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
         }
-        else if (choice.text.Contains("gameplay"))
+        else if (choice.text.Contains("You enjoy the show") || choice.text.Contains("gameplay"))
+        {
+            GameManager.Instance.roomName = "Hallway";
+            GameManager.Instance.isToMove = true;
+            GameManager.Instance.ChnageSceneToTutorial();
+        }
+        else if (choice.text.Contains("You spend some time alone") )
         {
             GameManager.Instance.roomName = "Hallway";
             GameManager.Instance.isToMove = true;

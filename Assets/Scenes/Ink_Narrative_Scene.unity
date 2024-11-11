@@ -566,7 +566,7 @@ MonoBehaviour:
   delay: 10
   letterDelay: 0.01
   isSceneActive: {fileID: 1604636817}
-  inkJSONAsset: {fileID: 4900000, guid: 6487ce75242ac0845a71b523919b478b, type: 3}
+  inkJSONAsset: {fileID: 4900000, guid: 3c44f27d2ce471647921ad34f151ce22, type: 3}
   canvas: {fileID: 1081504863}
   textPrefab: {fileID: -5151042050377934239, guid: 106d9f3116403aa45b96aa09663dbdfe, type: 3}
   buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}

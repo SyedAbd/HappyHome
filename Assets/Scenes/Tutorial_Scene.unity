@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &10523108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1777,6 +1777,7 @@ Transform:
   - {fileID: 2144153291}
   - {fileID: 797589657}
   - {fileID: 1491420100}
+  - {fileID: 996752958}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &986725228
@@ -2210,6 +2211,100 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df37e7b4022d74c4384d2446cf2ba5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &996752957
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 935406079}
+    m_Modifications:
+    - target: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -744.4581
+      objectReference: {fileID: 0}
+    - target: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -760.2298
+      objectReference: {fileID: 0}
+    - target: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.498942
+      objectReference: {fileID: 0}
+    - target: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588136671020287360, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: m_Name
+      value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855616018699006592, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: bedroom
+      value: 
+      objectReference: {fileID: 1507344367}
+    - target: {fileID: 7855616018699006592, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: hallway
+      value: 
+      objectReference: {fileID: 168215264}
+    - target: {fileID: 7855616018699006592, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: bathroom
+      value: 
+      objectReference: {fileID: 1665864719}
+    - target: {fileID: 7855616018699006592, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: livingRoom
+      value: 
+      objectReference: {fileID: 15011886}
+    - target: {fileID: 7855616018699006592, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: bedroomSpawnPoint
+      value: 
+      objectReference: {fileID: 1490624271}
+    - target: {fileID: 7855616018699006592, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: hallwaySpawnPoint
+      value: 
+      objectReference: {fileID: 1871263283}
+    - target: {fileID: 7855616018699006592, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: bathroomSpawnPoint
+      value: 
+      objectReference: {fileID: 1200568840}
+    - target: {fileID: 7855616018699006592, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: livingRoomSpawnPoint
+      value: 
+      objectReference: {fileID: 1786274152}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+--- !u!4 &996752958 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3260792681978196862, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+  m_PrefabInstance: {fileID: 996752957}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1080663283 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8821399024252881179, guid: 8faa1b39ff6180742ac43b6250d5bdfb, type: 3}
@@ -2979,7 +3074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -868.9, y: -528.1}
+  m_AnchoredPosition: {x: -852.6, y: -516}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2076438383
@@ -3170,6 +3265,14 @@ PrefabInstance:
     - target: {fileID: 3993047018127169978, guid: c6eb280976768994b997d74806fd716f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479221030963247349, guid: c6eb280976768994b997d74806fd716f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479221030963247349, guid: c6eb280976768994b997d74806fd716f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 9000576004015725758, guid: c6eb280976768994b997d74806fd716f, type: 3}
       propertyPath: m_LocalPosition.x
