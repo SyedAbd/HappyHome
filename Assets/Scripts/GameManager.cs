@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
             LoadTutorialScene();
             
             
+            
             DontDestroyOnLoad(gameObject); // Prevent this object from being destroyed on scene load
         }
         else

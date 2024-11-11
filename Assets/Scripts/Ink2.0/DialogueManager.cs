@@ -122,15 +122,15 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
         }
-        else if (choice.text.Contains("You enjoy the show") || choice.text.Contains("gameplay"))
+        else if (choice.text.Contains("You enjoy the show") )
         {
-            GameManager.Instance.roomName = "Hallway";
+            GameManager.Instance.roomName = "Bedroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToTutorial();
         }
         else if (choice.text.Contains("You spend some time alone") )
         {
-            GameManager.Instance.roomName = "Hallway";
+            GameManager.Instance.roomName = "Bedroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToTutorial();
         }
@@ -187,6 +187,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in text.ToCharArray())
         {
             storyText.text += letter;
+            if(!skipText)
             yield return new WaitForSeconds(letterDelay); // Wait between letters
         }
     }
@@ -220,4 +221,5 @@ public class DialogueManager : MonoBehaviour
     private TMPro.TextMeshProUGUI textPrefab = null;
     [SerializeField]
     private Button buttonPrefab = null;
+    [SerializeField] private bool skipText;
 }
