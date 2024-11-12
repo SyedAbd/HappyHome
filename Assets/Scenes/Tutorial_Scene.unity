@@ -2608,6 +2608,10 @@ PrefabInstance:
       propertyPath: batteryFillImage
       value: 
       objectReference: {fileID: 1080663283}
+    - target: {fileID: 3978358468292994166, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.53
+      objectReference: {fileID: 0}
     - target: {fileID: 4060884704047649259, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
       propertyPath: fearFillImage
       value: 
@@ -2631,6 +2635,18 @@ PrefabInstance:
     - target: {fileID: 6310619030012485035, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
       propertyPath: m_Name
       value: Player tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638418488719994242, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638418488719994242, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4450286
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638418488719994242, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2571429
       objectReference: {fileID: 0}
     - target: {fileID: 7638418488719994242, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2672,6 +2688,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7638418488719994242, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8115538683833220949, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 816bb9e00f64fa0459fb2a7c09cb2010, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5029059142265637247, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
