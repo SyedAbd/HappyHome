@@ -319,7 +319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1773831577923383735}
   - component: {fileID: 6697908669866535717}
-  - component: {fileID: 5358782659170077530}
   m_Layer: 0
   m_Name: Scene Controller
   m_TagString: Untagged
@@ -360,19 +359,6 @@ MonoBehaviour:
   canvas: {fileID: 1731958251658182719}
   textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
   buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
---- !u!114 &5358782659170077530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4124203309174961436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ce0d8573e1b2ff42af74cb80f3e5ece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: 27
 --- !u!1 &6830669143771273275
 GameObject:
   m_ObjectHideFlags: 0

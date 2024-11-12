@@ -58,7 +58,7 @@ public class FlashlightToggleWithCooldown : MonoBehaviour
                 batteryFillImage.fillAmount = 0;
                 flashlight.SetActive(false);
                 isFlashlightActive = false;
-                promptText.text = "Battery empty, recharging...";
+                //promptText.text = "Battery empty, recharging...";
             }
         }
         else
