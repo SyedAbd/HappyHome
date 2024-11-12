@@ -6,21 +6,24 @@ public class FlashlightToggleWithCooldown : MonoBehaviour
 {
     [SerializeField] private GameObject flashlight;          
     [SerializeField] private TextMeshProUGUI promptText;     
-    [SerializeField] private Image batteryFillImage;         
+    [SerializeField] private Image batteryFillImage;
+    [SerializeField] private GameObject batteryPanel;
 
     [SerializeField] private float displayDuration = 3f;     
     [SerializeField] private float maxUsageTime = 5f;        
     [SerializeField] private float depletionRate = 0.1f;     
     [SerializeField] private float rechargeRate = 0.05f;     
 
-    private bool isFlashlightActive = false;                 
+    private bool isFlashlightActive = true;                 
     private float displayTimer;                              
 
     void OnEnable()
     {
         // Reset timers and show the initial message
         displayTimer = displayDuration;
-        promptText.text = "Press F to activate/deactivate flashlight";
+
+        batteryPanel.SetActive(true);
+        //promptText.text = "Press F to activate/deactivate flashlight";
         batteryFillImage.fillAmount = 1f; // Start battery fully charged
     }
 

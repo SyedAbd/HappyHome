@@ -1,71 +1,22 @@
+using System.Collections;
 using UnityEngine;
-using TMPro;  // Required for TextMesh Pro
+using TMPro;
 
 public class DoorWithoutKey : MonoBehaviour
 {
-    public enum Room
-    {
-        Hallway,
-        Bedroom,
-        LivingRoom,
-        Bathroom
-    }
+    public string message = "This is the message to display."; // The message to display
+    public float letterDelay = 0.05f; // Delay between each letter appearing
+    public KeyCode activationKey = KeyCode.E; // Key to press to show the message
+    public TextMeshProUGUI messageText; // Reference to the TextMeshProUGUI component
 
-    [SerializeField] private Room targetRoom;  // Dropdown for room selection
-    [SerializeField] private PlayerManager playerManager;  // Drag the PlayerManager here in the Inspector
-    [SerializeField] private float interactionDistance = 2f;  // Distance within which the player can interact with the door
-    [SerializeField] private TextMeshProUGUI instructionText;  // TextMesh Pro text for instructions
-
-    private Transform player;
-    private bool playerInRange;
-
-    void Start()
-    {
-        player = GameObject.FindWithTag("Player").transform;  // Finds player based on "Player" tag
-        instructionText.text = "";  // Clear any initial text
-    }
-
-    void Update()
-    {
-        // Check if player is close enough and presses "E"
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            TransportPlayer();
-        }
-    }
-
-    private void TransportPlayer()
-    {
-        // Call the appropriate method on the PlayerManager based on the selected room
-        switch (targetRoom)
-        {
-            case Room.Hallway:
-                playerManager.GotoHallway();
-                break;
-            case Room.Bedroom:
-                playerManager.GotoBedroom();
-                break;
-            case Room.LivingRoom:
-                playerManager.GotoLivingRoom();
-                break;
-            case Room.Bathroom:
-                playerManager.GotoBathroom();
-                break;
-            default:
-                Debug.LogWarning("Invalid room specified in DoorWithoutKey script");
-                break;
-        }
-
-        // Hide the instruction text once transported
-        instructionText.text = "";
-    }
+    private bool playerInRange = false;
+    private bool displayingMessage = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player")) // Assuming the player has the tag "Player"
         {
             playerInRange = true;
-            instructionText.text = $"Press E to go to the {targetRoom}";  // Display room-specific instruction
         }
     }
 
@@ -74,7 +25,31 @@ public class DoorWithoutKey : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            instructionText.text = "";  // Clear instruction when player leaves range
+            StopAllCoroutines(); // Stop showing the message if the player exits the trigger
+            messageText.text = ""; // Clear the text
+            displayingMessage = false;
         }
+    }
+
+    private void Update()
+    {
+        if (playerInRange && !displayingMessage && Input.GetKeyDown(activationKey))
+        {
+            StartCoroutine(DisplayMessage());
+        }
+    }
+
+    private IEnumerator DisplayMessage()
+    {
+        displayingMessage = true;
+        messageText.text = ""; // Clear any previous text
+
+        foreach (char letter in message)
+        {
+            messageText.text += letter; // Add each letter to the text
+            yield return new WaitForSeconds(letterDelay); // Wait for a bit before adding the next letter
+        }
+
+        displayingMessage = false;
     }
 }

@@ -124,13 +124,13 @@ public class DialogueManager : MonoBehaviour
         }
         else if (choice.text.Contains("You enjoy the show") )
         {
-            GameManager.Instance.roomName = "Bedroom";
+            GameManager.Instance.roomName = "Hallway";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToTutorial();
         }
         else if (choice.text.Contains("You spend some time alone") )
         {
-            GameManager.Instance.roomName = "Bedroom";
+            GameManager.Instance.roomName = "Hallway";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToTutorial();
         }
