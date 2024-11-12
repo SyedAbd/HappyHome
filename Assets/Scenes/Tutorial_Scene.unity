@@ -2566,7 +2566,6 @@ Transform:
   - {fileID: 805411148}
   - {fileID: 1908686360}
   - {fileID: 10523109}
-  - {fileID: 701715867}
   - {fileID: 48745620}
   - {fileID: 2144153291}
   - {fileID: 797589657}
@@ -2574,6 +2573,7 @@ Transform:
   - {fileID: 1491420100}
   - {fileID: 996752958}
   - {fileID: 808087248}
+  - {fileID: 701715867}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &986725228
@@ -2635,6 +2635,14 @@ PrefabInstance:
     - target: {fileID: 6310619030012485035, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
       propertyPath: m_Name
       value: Player tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344463073030895711, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344463073030895711, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.53
       objectReference: {fileID: 0}
     - target: {fileID: 7638418488719994242, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
       propertyPath: m_LocalScale.x
@@ -4931,7 +4939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7382719866433723536, guid: f779a5fa627dbd24d99d019308f8dd2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.33
+      value: 14.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

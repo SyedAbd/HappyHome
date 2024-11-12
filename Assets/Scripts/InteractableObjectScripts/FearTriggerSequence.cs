@@ -69,7 +69,7 @@ public class FearTriggerSequence : MonoBehaviour
         keyToBeEnabled.SetActive(true);
 
         // Step 7: Fade in and show second message
-        yield return FadeIn();
+        //yield return FadeIn();
         yield return ShowTextLetterByLetter(initialMessageText, "See, everything’s fine, I’ve got you. You can keep the flashlight if you want", initialMessageDuration);
         yield return new WaitForSecondsRealtime(2f);
         if (initialMessageText.text == "See, everything’s fine, I’ve got you. You can keep the flashlight if you want") initialMessageText.text = "";
@@ -86,7 +86,7 @@ public class FearTriggerSequence : MonoBehaviour
         if (initialMessageText.text == "I think I should head to bed now…") initialMessageText.text = "";
 
         // Final Fade Out and resume game normally
-        yield return FadeOut();
+        //yield return FadeOut();
         Time.timeScale = 1;
     }
 
@@ -104,7 +104,7 @@ public class FearTriggerSequence : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
-        // Fade in using the CanvasGroup alpha
+        fadeCanvasGroup.blocksRaycasts = true; // Enable raycast blocking during fade in
         float elapsedTime = 0f;
         while (elapsedTime < fadeDuration)
         {
@@ -117,7 +117,6 @@ public class FearTriggerSequence : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
-        // Fade out using the CanvasGroup alpha
         float elapsedTime = 0f;
         while (elapsedTime < fadeDuration)
         {
@@ -126,5 +125,7 @@ public class FearTriggerSequence : MonoBehaviour
             yield return null;
         }
         fadeCanvasGroup.alpha = 0f;
+        fadeCanvasGroup.blocksRaycasts = false; // Disable raycast blocking after fade out
     }
+
 }
