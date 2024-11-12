@@ -122,7 +122,76 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< Updated upstream:Assets/Scenes/Deleting/Tutorial.unity
 --- !u!1 &721061872
+=======
+--- !u!1001 &374915108
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1504967468562061747, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: targetScene
+      value: SampleScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504967468562061747, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: nextRoomText
+      value: Going back
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822254821395620302, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.6253514
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822254821395620302, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0099082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822254821395620302, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822254821395620302, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822254821395620302, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822254821395620302, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822254821395620302, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822254821395620302, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822254821395620302, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822254821395620302, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199272269544357909, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+      propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 914917df0ebdebf4988caf2878ed131c, type: 3}
+--- !u!1 &1245365102
+>>>>>>> Stashed changes:Assets/Scenes/Living_Room.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,4 +287,9 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+<<<<<<< Updated upstream:Assets/Scenes/Deleting/Tutorial.unity
   - {fileID: 721061875}
+=======
+  - {fileID: 1245365105}
+  - {fileID: 374915108}
+>>>>>>> Stashed changes:Assets/Scenes/Living_Room.unity

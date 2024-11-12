@@ -4,7 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public enum Room
+=======
+    public string targetScene; 
+    public string nextRoomText; 
+
+    private bool isHovering = false;
+
+    void OnMouseOver()
+>>>>>>> Stashed changes
     {
         Hallway,
         Bedroom,
