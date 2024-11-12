@@ -1188,6 +1188,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1421583256}
     - target: {fileID: 3730153315644434023, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: batteryPanel
+      value: 
+      objectReference: {fileID: 1851806446}
+    - target: {fileID: 3730153315644434023, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
       propertyPath: batteryFillImage
       value: 
       objectReference: {fileID: 6520259794605323520}
@@ -1206,6 +1210,14 @@ PrefabInstance:
     - target: {fileID: 6310619030012485035, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
       propertyPath: m_Name
       value: Player room
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344463073030895711, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7344463073030895711, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.54
       objectReference: {fileID: 0}
     - target: {fileID: 7638418488719994242, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
       propertyPath: m_LocalScale.x
@@ -1812,6 +1824,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7896280514875588824, guid: 05cdf76bb24f581429796009f4a6451d, type: 3}
   m_PrefabInstance: {fileID: 1216936845546892588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1851806446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4940250980180913369, guid: 068a16573f8c0eb40a6404d54402bb82, type: 3}
+  m_PrefabInstance: {fileID: 986725228}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1871263283 stripped
 Transform:
