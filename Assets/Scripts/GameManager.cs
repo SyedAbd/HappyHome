@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool isInkActive = true;
+    public bool isTutorialActive = false;
+    public bool isRoomsActive = false;
     public Animator animator_canvas; // Canvas animator for fading animation control
     private string _roomName; // Private backing field for roomName
     private bool _isToMove; // Private backing field for isToMove
@@ -34,6 +36,10 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             LoadRoomScene();
+            LoadTutorialScene();
+            
+            
+            
             DontDestroyOnLoad(gameObject); // Prevent this object from being destroyed on scene load
         }
         else
@@ -46,23 +52,64 @@ public class GameManager : MonoBehaviour
         if(isInkActive)
         {
             SetActiveInRoomsScene(false);
+            SetActiveInTutorial(false);
+        }
+        else if (isRoomsActive)
+        {
+            SetActiveInTutorial(false);
+            SetActiveInkScene(false);
+
+        }
+        else if (isTutorialActive)
+        {
+            SetActiveInRoomsScene(false);
+            SetActiveInkScene(false);
+
         }
     }
 
     public void ChnageSceneToRooms()
     {
         Play_Animation_Fade("from_black");
-
+        
         isInkActive = false;
+        isTutorialActive = false;
+        isRoomsActive = true;
         SetActiveInRoomsScene(true);
         SetActiveInkScene(false);
+    }
+
+    public void ChnageSceneToTutorial()
+    {
+        Play_Animation_Fade("from_black");
+        isInkActive = false;
+        isRoomsActive=false;
+        isTutorialActive = true;
+        SetActiveInTutorial(true);
+        SetActiveInRoomsScene(false);
+        SetActiveInkScene(false);
+
+    }
+    public void ChnageSceneToInkFromTutorial()
+    {
+        //Play_Animation_Fade("from_black");
+        isTutorialActive = false;
+        isRoomsActive=false;
+        isInkActive = true;
+        SetActiveInTutorial(false);
+        SetActiveInRoomsScene(false);
+        UnloadTutorialScene();
+        SetActiveInkScene(true);
+
     }
     public void ChangeSceneToink()
     {
         Play_Animation_Fade("from_black");
-
+        isRoomsActive = false;
+        isTutorialActive=false;
         isInkActive = true;
         SetActiveInRoomsScene(false);
+        SetActiveInTutorial(false);
         SetActiveInkScene(true);
 
         //if (sceneController != null)
@@ -108,6 +155,14 @@ public class GameManager : MonoBehaviour
             SetActiveInRoomsScene(false);
         }
     }
+    public void LoadTutorialScene()
+    {
+        if (!SceneManager.GetSceneByName("Tutorial_Scene").isLoaded)
+        {
+            SceneManager.LoadSceneAsync("Tutorial_Scene", LoadSceneMode.Additive);
+            SetActiveInTutorial(false);
+        }
+    }
 
     public void UnloadRoomScene()
     {
@@ -116,7 +171,13 @@ public class GameManager : MonoBehaviour
             SceneManager.UnloadSceneAsync("Rooms_Scene");
         }
     }
-
+    public void UnloadTutorialScene()
+    {
+        if (SceneManager.GetSceneByName("Tutorial_Scene").isLoaded)
+        {
+            SceneManager.UnloadSceneAsync("Tutorial_Scene");
+        }
+    }
     public void SetActiveInRoomsScene(bool isActive)
     {
         Scene roomsScene = SceneManager.GetSceneByName("Rooms_Scene");
@@ -150,6 +211,44 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Rooms_Scene is not loaded.");
         }
     }
+
+    public void SetActiveInTutorial(bool isActive)
+    {
+        Scene TutorialScene = SceneManager.GetSceneByName("Tutorial_Scene");
+
+        if (TutorialScene.isLoaded)
+        {
+            Debug.Log("in the active obj in tutorial scene");
+            // Find the GameObject in the scene by tag or name
+            GameObject targetObject = null;
+
+            foreach (GameObject obj in TutorialScene.GetRootGameObjects())
+            {
+                if (obj.CompareTag("ActiveOrInactive") || obj.name == "Active")
+                {
+                    Debug.Log("Found the active obj in tutorial scene");
+                    targetObject = obj;
+                    break;
+                }
+            }
+
+            // Activate or deactivate the object
+            if (targetObject != null)
+            {
+                targetObject.SetActive(isActive);
+            }
+            else
+            {
+                Debug.LogWarning("GameObject with tag 'ActiveorInactive' or name 'Active' not found in Rooms_Scene.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Tutorial_Scene is not loaded.");
+        }
+    }
+
+    
     public void SetActiveInkScene(bool isActive)
     {
         Scene inkScene = SceneManager.GetSceneByName("Ink_Narrative_Scene");

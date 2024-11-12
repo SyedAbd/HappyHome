@@ -31,7 +31,7 @@ public class FearController : MonoBehaviour
             // Display message
             if (fearMessageText != null)
             {
-                fearMessageText.text = "You are scared of the spider! Point the flashlight at it to make it go away.";
+                //fearMessageText.text = "You are scared of the spider! Point the flashlight at it to make it go away.";
             }
 
             // Check if flashlight is focused on object
@@ -42,8 +42,10 @@ public class FearController : MonoBehaviour
                 // Deactivate object if focus time exceeds required duration
                 if (flashlightFocusTimer >= focusTimeToDeactivate)
                 {
-                    objectToDeactivate.SetActive(false);
+                    playerController.isInFear = false;
                     ResetFearState();
+                    objectToDeactivate.SetActive(false);
+                    
                 }
             }
             else
@@ -90,6 +92,11 @@ public class FearController : MonoBehaviour
         {
             fearMessageText.text = ""; // Clear fear message
         }
+    }
+
+    private void OnDestroy()
+    {
+        playerController.isInFear = false;
     }
 
     // Call this method when the flashlight is pointing at the object

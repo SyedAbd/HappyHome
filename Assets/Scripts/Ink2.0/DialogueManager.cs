@@ -98,13 +98,13 @@ public class DialogueManager : MonoBehaviour
         // Save the state before refreshing
         // SaveStoryState();
 
-        if (choice.text.Contains("Living Room") || choice.text.Contains("Enjoy the show") || choice.text.Contains("What happened?"))
+        if ( choice.text.Contains("Living Room") || choice.text.Contains("Enjoy the show") || choice.text.Contains("What happened?"))
         {
             GameManager.Instance.roomName = "Livingroom";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
         }
-        else if (choice.text.Contains("Bedroom") || choice.text.Contains("Go to bed"))
+        else if (choice.text.Contains("Bedroom") ||  choice.text.Contains("Go to bed"))
         {
             GameManager.Instance.roomName = "Bedroom";
             GameManager.Instance.isToMove = true;
@@ -121,6 +121,18 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.roomName = "Hallway";
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToRooms();
+        }
+        else if (choice.text.Contains("You enjoy the show") )
+        {
+            GameManager.Instance.roomName = "Hallway";
+            GameManager.Instance.isToMove = true;
+            GameManager.Instance.ChnageSceneToTutorial();
+        }
+        else if (choice.text.Contains("You spend some time alone") )
+        {
+            GameManager.Instance.roomName = "Hallway";
+            GameManager.Instance.isToMove = true;
+            GameManager.Instance.ChnageSceneToTutorial();
         }
 
         /* NOTE! For testing purposes only
@@ -175,6 +187,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in text.ToCharArray())
         {
             storyText.text += letter;
+            if(!skipText)
             yield return new WaitForSeconds(letterDelay); // Wait between letters
         }
     }
@@ -208,4 +221,5 @@ public class DialogueManager : MonoBehaviour
     private TMPro.TextMeshProUGUI textPrefab = null;
     [SerializeField]
     private Button buttonPrefab = null;
+    [SerializeField] private bool skipText;
 }
