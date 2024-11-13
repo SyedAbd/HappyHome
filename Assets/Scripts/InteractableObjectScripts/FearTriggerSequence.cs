@@ -54,7 +54,7 @@ public class FearTriggerSequence : MonoBehaviour
 
         // Step 5: Show the first message on the reusable screen letter by letter
         textBox.SetActive(true);
-        yield return ShowTextLetterByLetter(textBoxText, firstMsg, letterDelay);
+        ShowText(textBoxText, firstMsg);
 
         yield return new WaitUntil(() => !textBox.activeSelf);
         textBoxText.text = "";
@@ -70,12 +70,12 @@ public class FearTriggerSequence : MonoBehaviour
 
         // Step 7: Fade in and show second message
         //yield return FadeIn();
-        yield return ShowTextLetterByLetter(initialMessageText, "See, everything’s fine, I’ve got you. You can keep the flashlight if you want", initialMessageDuration);
+        yield return ShowTextLetterByLetter(initialMessageText, " See, everything’s fine, I’ve got you. You can keep the flashlight if you want", initialMessageDuration);
         yield return new WaitForSecondsRealtime(2f);
         if (initialMessageText.text == "See, everything’s fine, I’ve got you. You can keep the flashlight if you want") initialMessageText.text = "";
 
         textBox.SetActive(true);
-        yield return ShowTextLetterByLetter(textBoxText, secondMsg, letterDelay);
+        ShowText(textBoxText, secondMsg);
 
         yield return new WaitUntil(() => !textBox.activeSelf);
 
@@ -90,6 +90,15 @@ public class FearTriggerSequence : MonoBehaviour
         Time.timeScale = 1;
     }
 
+
+    private void ShowText(TextMeshProUGUI textObject, string message)
+    {
+        textObject.gameObject.SetActive(true);
+        textObject.text = message;
+
+
+
+    }
     private IEnumerator ShowTextLetterByLetter(TextMeshProUGUI textObject, string message, float letterDelay)
     {
         textObject.gameObject.SetActive(true);
