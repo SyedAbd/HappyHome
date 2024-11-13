@@ -2708,11 +2708,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4585621623221346840, guid: 78573193d313fb84595c15d1ab5e9336, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.02
+      value: 32.88
       objectReference: {fileID: 0}
     - target: {fileID: 4585621623221346840, guid: 78573193d313fb84595c15d1ab5e9336, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 50.96
+      value: 51.61
       objectReference: {fileID: 0}
     - target: {fileID: 4585621623221346840, guid: 78573193d313fb84595c15d1ab5e9336, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2872,11 +2872,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5456682237029013541, guid: a79482d081df58f46a17ecfb3f9c4c58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.98
+      value: 15.03
       objectReference: {fileID: 0}
     - target: {fileID: 5456682237029013541, guid: a79482d081df58f46a17ecfb3f9c4c58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.65
+      value: -2.53
       objectReference: {fileID: 0}
     - target: {fileID: 5456682237029013541, guid: a79482d081df58f46a17ecfb3f9c4c58, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3261,13 +3261,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8903626228919649576, guid: 8faa1b39ff6180742ac43b6250d5bdfb, type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903626228919649576, guid: 8faa1b39ff6180742ac43b6250d5bdfb, type: 3}
+      propertyPath: m_margin.w
+      value: -46.073013
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903626228919649576, guid: 8faa1b39ff6180742ac43b6250d5bdfb, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 97095444b3663c64ebe24e101a1f1250, type: 2}
     - target: {fileID: 8903626228919649576, guid: 8faa1b39ff6180742ac43b6250d5bdfb, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8903626228919649576, guid: 8faa1b39ff6180742ac43b6250d5bdfb, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -5937378913528649869, guid: 97095444b3663c64ebe24e101a1f1250, type: 2}
+    - target: {fileID: 8903626228919649576, guid: 8faa1b39ff6180742ac43b6250d5bdfb, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 8903626228919649576, guid: 8faa1b39ff6180742ac43b6250d5bdfb, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 1
