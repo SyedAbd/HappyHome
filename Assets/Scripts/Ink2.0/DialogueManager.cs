@@ -29,7 +29,16 @@ public class DialogueManager : MonoBehaviour
             firstTimeContinuingStory = false;
         }
     }
+    public void ToggleSkipButton()
+    {
 
+        if(skipText == true)
+        {
+            skipText = false;
+        }
+        else skipText = true;
+
+    }
     void StartStory()
     {
         story = new Story(inkJSONAsset.text);
@@ -179,5 +188,5 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Canvas canvas = null;
     [SerializeField] private TextMeshProUGUI textPrefab = null;
     [SerializeField] private Button buttonPrefab = null;
-    [SerializeField] private bool skipText;
+    [SerializeField] public bool skipText;
 }
