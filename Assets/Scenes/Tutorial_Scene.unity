@@ -159,6 +159,7 @@ MonoBehaviour:
   bedroom: {fileID: 1507344367}
   livingRoom: {fileID: 15011886}
   bathroom: {fileID: 1665864719}
+  player: {fileID: 0}
 --- !u!4 &10523109
 Transform:
   m_ObjectHideFlags: 0
@@ -3183,6 +3184,10 @@ PrefabInstance:
       value: PlayerManager
       objectReference: {fileID: 0}
     - target: {fileID: 7855616018699006592, guid: 2a40a985ed885a448885940199d211e0, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2012798729}
+    - target: {fileID: 7855616018699006592, guid: 2a40a985ed885a448885940199d211e0, type: 3}
       propertyPath: bedroom
       value: 
       objectReference: {fileID: 1507344367}
@@ -5207,7 +5212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7382719866433723536, guid: f779a5fa627dbd24d99d019308f8dd2d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.5
+      value: -26.49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

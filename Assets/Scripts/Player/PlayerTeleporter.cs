@@ -14,13 +14,13 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private GameObject livingRoom;
     [SerializeField] private GameObject bathroom;
 
-    private Transform player;
+    [SerializeField] private Transform player;
 
     //private GameManager gameManager;
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        //player = GameObject.FindWithTag("Player").transform;
         //gameManager = GetComponent<GameManager>();
         GotoHallway();
 
