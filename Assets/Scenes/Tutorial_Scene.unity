@@ -1373,8 +1373,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5.1200004, y: 5.1200004}
+  m_Offset: {x: 0.16804516, y: 0.43802118}
+  m_Size: {x: 6.0872884, y: 10.692757}
   m_Direction: 0
 --- !u!1 &805411147
 GameObject:
@@ -3485,7 +3485,7 @@ Transform:
   m_GameObject: {fileID: 1867985829}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0054971203, y: -0.018588662, z: 0.28353077, w: 0.95876724}
-  m_LocalPosition: {x: -3.27, y: -3.1, z: -0.06}
+  m_LocalPosition: {x: 0.34, y: -1.01, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3551,7 +3551,7 @@ MonoBehaviour:
   playerController: {fileID: 2012798734}
   fearMessageText: {fileID: 665356208}
   objectToDeactivate: {fileID: 797589655}
-  focusTimeToDeactivate: 2
+  focusTimeToDeactivate: 1
 --- !u!4 &1871263283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7382719866433723536, guid: f779a5fa627dbd24d99d019308f8dd2d, type: 3}

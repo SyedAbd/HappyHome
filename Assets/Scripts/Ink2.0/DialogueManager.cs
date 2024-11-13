@@ -9,6 +9,14 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+
+    [SerializeField] private TextAsset inkJSONAsset = null;
+    [SerializeField] private Canvas canvas = null;
+    [SerializeField] private TextMeshProUGUI textPrefab = null;
+    [SerializeField] private Button buttonPrefab = null;
+    [SerializeField] public bool skipText;
+
+
     public static event Action<Story> OnCreateStory;
     public Story story;
     public float delay = 10f;
@@ -184,9 +192,5 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private TextAsset inkJSONAsset = null;
-    [SerializeField] private Canvas canvas = null;
-    [SerializeField] private TextMeshProUGUI textPrefab = null;
-    [SerializeField] private Button buttonPrefab = null;
-    [SerializeField] public bool skipText;
+    
 }
