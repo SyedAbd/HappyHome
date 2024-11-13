@@ -1392,6 +1392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs
       objectReference: {fileID: 0}
+    - target: {fileID: 1754621306642289766, guid: 225edb393295ca7408b97900c8c17681, type: 3}
+      propertyPath: instructionText
+      value: 
+      objectReference: {fileID: 1421583256}
     - target: {fileID: 6921600500573730703, guid: 225edb393295ca7408b97900c8c17681, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.95238084
