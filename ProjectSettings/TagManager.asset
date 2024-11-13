@@ -11,6 +11,7 @@ TagManager:
   - LivingroomKey
   - ActiveOrInactive
   - ScarySpider
+  - Door
   layers:
   - Default
   - TransparentFX

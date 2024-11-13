@@ -38,7 +38,7 @@ public class Door : MonoBehaviour
     {
         // Initialize the instruction text UI
         //instructionText.gameObject.SetActive(false);
-        
+
         instructionText.enabled = true;
         instructionText.text = "";
     }

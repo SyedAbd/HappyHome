@@ -2153,7 +2153,7 @@ PrefabInstance:
       objectReference: {fileID: 4900000, guid: 04860ef011fe00a4fb41cb66feca2c2a, type: 3}
     - target: {fileID: 7210688265553885186, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
       propertyPath: m_Spacing
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7210688265553885186, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
       propertyPath: m_Padding.m_Top

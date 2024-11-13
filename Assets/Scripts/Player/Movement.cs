@@ -21,13 +21,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Image fearFillImage;           // UI Image for fear level display
     [SerializeField] private TextMeshProUGUI fearPromptText; // Text to prompt the player to use the flashlight
 
-    private bool canMove = true;                     // Controls if the player can move
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip walkSound;          // Sound for player walking
+    private AudioSource audioSource;                       // AudioSource component to play sound
+
+    private bool canMove = true;                           // Controls if the player can move
 
     void Start()
     {
         animator = GetComponent<Animator>();
         scaleX = transform.localScale.x;
         fearPromptText.text = ""; // Start with an empty prompt
+
+        // Setup audio source for walking sound
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = walkSound;
+        audioSource.loop = true;   // Loop sound while moving
+        audioSource.playOnAwake = false;
     }
 
     void Update()
@@ -35,13 +45,11 @@ public class PlayerController : MonoBehaviour
         // Update fear level based on fear state
         if (isInFear)
         {
-            // Increase the fear level over time
             fearLevel += fearIncreaseRate * Time.deltaTime;
             fearLevel = Mathf.Clamp(fearLevel, 0, 1); // Keep fear level within range 0-1
         }
         else
         {
-            // Decrease the fear level over time
             fearLevel -= fearDecreaseRate * Time.deltaTime;
             fearLevel = Mathf.Clamp(fearLevel, 0, 1);
         }
@@ -52,13 +60,12 @@ public class PlayerController : MonoBehaviour
         // If fear level is above the threshold, freeze player and show prompt
         if (fearLevel > fearThreshold)
         {
-            //canMove = false;
-            fearPromptText.text = "Get the FlashLight and point it at scary thing otherwise youll pass out";
+            fearPromptText.text = "Get the FlashLight and point it at scary thing otherwise you'll pass out";
         }
         else
         {
             canMove = true;
-            if(fearPromptText.text == "Point your flashlight at the object that you are scared of") fearPromptText.text = ""; // Clear prompt if below threshold
+            if (fearPromptText.text == "Point your flashlight at the object that you are scared of") fearPromptText.text = ""; // Clear prompt if below threshold
         }
 
         // Handle player movement if allowed
@@ -68,8 +75,12 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // Stop walking animation if player is frozen by fear
+            // Stop walking animation and sound if player is frozen by fear
             animator.SetBool("IsWalking", false);
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
         }
     }
 
@@ -80,8 +91,26 @@ public class PlayerController : MonoBehaviour
         // Move the player
         transform.Translate(Vector3.right * movement * moveSpeed * Time.deltaTime);
 
-        // Set the walking animation
-        animator.SetBool("IsWalking", movement != 0);
+        // Set the walking animation and play sound based on movement
+        bool isMoving = movement != 0;
+        animator.SetBool("IsWalking", isMoving);
+
+        if (isMoving && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        {
+            // Only play the sound when moving left (A) or right (D)
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            // Stop the sound if not moving or not pressing A/D
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+        }
 
         // Flip the player's sprite based on movement direction
         if (movement > 0)
