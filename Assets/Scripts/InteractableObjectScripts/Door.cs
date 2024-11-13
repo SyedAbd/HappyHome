@@ -4,12 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
-    public string targetScene;
-    public string nextRoomText;
-
-    private bool isHovering = false;
-
-
     public enum Room
     {
         Hallway,
