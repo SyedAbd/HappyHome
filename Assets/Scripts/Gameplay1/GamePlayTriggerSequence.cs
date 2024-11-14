@@ -18,9 +18,9 @@ public class GamePlayTriggerSequence : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!hasGameStarted) hasGameStarted = true;
-        else
-        StartCoroutine(SequenceForGamePlay());
+        //if (!hasGameStarted) hasGameStarted = true;
+        //else
+        //StartCoroutine(SequenceForGamePlay());
 
 
     }
@@ -284,7 +284,16 @@ public class GamePlayTriggerSequence : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            StartCoroutine(SequenceForGamePlay());
+            this.GetComponent<BoxCollider2D>().enabled = false;
 
+
+        }
+    }
     private IEnumerator ShowTextLetterByLetter(TextMeshProUGUI textObject, string message, float letterDelay)
     {
         textObject.gameObject.SetActive(true);
