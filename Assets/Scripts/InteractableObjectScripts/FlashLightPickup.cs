@@ -27,7 +27,7 @@ public class FlashlightPickup : MonoBehaviour
         audioSource.clip = toggleSound;
         audioSource.playOnAwake = false;
 
-        interactionText.gameObject.SetActive(false);  // Start with interaction text hidden
+        interactionText.text = "";  // Start with interaction text hidden by setting it to an empty string
     }
 
     void Update()
@@ -35,7 +35,6 @@ public class FlashlightPickup : MonoBehaviour
         if (isInRange && !isPickedUp)
         {
             interactionText.text = "Press E to pick up the flashlight";
-            interactionText.gameObject.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -45,7 +44,7 @@ public class FlashlightPickup : MonoBehaviour
         }
         else if (!isInRange || isPickedUp)
         {
-            interactionText.gameObject.SetActive(false);
+            //interactionText.text = "";  // Clear the interaction text when out of range or after picking it up
         }
 
         // Toggle flashlight if picked up and "F" key is pressed
@@ -83,7 +82,7 @@ public class FlashlightPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isInRange = false;
-            interactionText.gameObject.SetActive(false);
+            interactionText.text = "";  // Clear the text when player exits the range
         }
     }
 }

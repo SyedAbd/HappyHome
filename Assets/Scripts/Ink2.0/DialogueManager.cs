@@ -96,7 +96,7 @@ public class DialogueManager : MonoBehaviour
     {
         story.ChooseChoiceIndex(choice.index);
 
-        if (choice.text.Contains("Living Room") || choice.text.Contains("Enjoy the show") || choice.text.Contains("What happened?"))
+        if (choice.text.Contains("12_days") || choice.text.Contains("Living Room") || choice.text.Contains("Enjoy the show") || choice.text.Contains("What happened?"))
         {
             GameManager.Instance.roomName = "Livingroom";
             GameManager.Instance.isToMove = true;
