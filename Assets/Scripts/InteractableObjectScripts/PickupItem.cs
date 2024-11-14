@@ -31,8 +31,8 @@ public class PickupItem : MonoBehaviour
         }
         if (isInRange && !isPickedUp)
         {
-            instructionText.text = "Press E to pick up the item";
-            instructionText.gameObject.SetActive(true);
+            instructionText.text = "Press E/R to pick & Drop the item";
+            //instructionText.gameObject.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.E))
             {

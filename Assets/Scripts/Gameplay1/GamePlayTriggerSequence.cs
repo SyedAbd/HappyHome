@@ -28,7 +28,7 @@ public class GamePlayTriggerSequence : MonoBehaviour
     private IEnumerator SequenceForGamePlay()
     {
         Time.timeScale = 0;
-       
+
         InstructionTextToDisable.SetActive(false);
 
 
@@ -99,13 +99,179 @@ public class GamePlayTriggerSequence : MonoBehaviour
 
         InstructionTextToDisable.SetActive(true);
         objectsToBeEnabledInOrder[4].SetActive(true);
+        objectsToBeEnabledInOrder[5].SetActive(true);
+        Time.timeScale = 1;
+
+        objectsToBeEnabledInOrder[1].SetActive(false);
+        yield return new WaitUntil(() => objectsToBeEnabledInOrder[1].activeSelf);
+
+        objectsToBeEnabledInOrder[6].SetActive(true);
+
+        yield return new WaitUntil(() => !objectsToBeEnabledInOrder[6].activeSelf);
+
+        //put fad in and out here 
+
+
+
+
+        yield return new WaitUntil(() => objectsToBeEnabledInOrder[7].activeSelf);
+
+
+
+        InstructionTextToDisable.SetActive(false);
+        Time.timeScale = 0;
+        
+
+        textBox.SetActive(true);
+        yield return ShowTextLetterByLetter(textBoxText, msgsInOrder[10], letterDelay);
+
+        //Put Fad in and out here
+
+        objectsToBeEnabledInOrder[2].SetActive(false);
+        
+
+        yield return new WaitUntil(() => !textBox.activeSelf);
+
+        InstructionTextToDisable.SetActive(true);
+        //objectsToBeEnabledInOrder[0].SetActive(true);
+
+
+        Time.timeScale = 1;
+
+
+
+
+        objectsToBeEnabledInOrder[1].SetActive(false);
+
+        yield return new WaitUntil(()=> objectsToBeEnabledInOrder[1].activeSelf);
+
+
+
+        Time.timeScale = 0;
+        InstructionTextToDisable.SetActive(false);
+
+        textBox.SetActive(true);
+        yield return ShowTextLetterByLetter(textBoxText, msgsInOrder[11], letterDelay);
+        yield return new WaitUntil(() => !textBox.activeSelf);
+
+        textBox.SetActive(true);
+        yield return ShowTextLetterByLetter(textBoxText, msgsInOrder[12], letterDelay);
+        yield return new WaitUntil(() => !textBox.activeSelf);
+        InstructionTextToDisable.SetActive(true);
+        objectsToBeEnabledInOrder[8].SetActive(true);
+
+
+        Time.timeScale = 1;
+
+
+
+        yield return new WaitUntil(() => objectsToBeEnabledInOrder[9].activeSelf);
+
+        //Put Fade in and out here
+
+        Time.timeScale = 0;
+        InstructionTextToDisable.SetActive(false);
+        textBox.SetActive(true);
+        yield return ShowTextLetterByLetter(textBoxText, msgsInOrder[14], letterDelay);
+        yield return new WaitUntil(() => !textBox.activeSelf);
+        InstructionTextToDisable.SetActive(true);
+        objectsToBeEnabledInOrder[10].SetActive(true);
+
+
+        Time.timeScale = 1;
+
+
+
+        yield return new WaitUntil(() => objectsToBeEnabledInOrder[11].activeSelf);
+
+        textBoxText.text = "";
+        //Time.timeScale = 0;
+        InstructionTextToDisable.SetActive(false);
+
+        textBox.SetActive(true);
+        yield return ShowTextLetterByLetter(textBoxText, msgsInOrder[15], letterDelay);
+        //yield return new WaitUntil(() => !textBox.activeSelf);
+
+
+
+        InstructionTextToDisable.SetActive(true);
+        objectsToBeEnabledInOrder[1].SetActive(false);
+        objectsToBeEnabledInOrder[10].SetActive(false);
+        objectsToBeEnabledInOrder[11].SetActive(false);
+
         Time.timeScale = 1;
 
 
 
 
 
-        yield return new WaitForSeconds(letterDelay);
+
+        yield return new WaitUntil(() => objectsToBeEnabledInOrder[1].activeSelf);
+
+
+        Time.timeScale = 0;
+        InstructionTextToDisable.SetActive(false);
+
+        textBox.SetActive(true);
+        yield return ShowTextLetterByLetter(textBoxText, msgsInOrder[16], letterDelay);
+        yield return new WaitUntil(() => !textBox.activeSelf);
+        // fade in and out
+        objectsToBeEnabledInOrder[0].SetActive(false);
+
+
+        textBox.SetActive(true);
+        yield return ShowTextLetterByLetter(textBoxText, msgsInOrder[17], letterDelay);
+        yield return new WaitUntil(() => !textBox.activeSelf);
+
+        //Fad in and out
+
+        objectsToBeEnabledInOrder[12].SetActive(true);
+        objectsToBeEnabledInOrder[8].SetActive(false);
+        //objectsToBeEnabledInOrder[12].SetActive(true);
+
+        yield return new WaitUntil(() => !objectsToBeEnabledInOrder[12].activeSelf);
+
+
+
+        //yield return new WaitForSeconds(1);
+        Time.timeScale = 1;
+
+        
+
+
+        textBox.SetActive(true);
+        yield return ShowTextLetterByLetter(textBoxText, msgsInOrder[19], letterDelay);
+        yield return new WaitUntil(() => !textBox.activeSelf);
+
+
+        InstructionTextToDisable.SetActive(true);
+        //objectsToBeEnabledInOrder[1].SetActive(false);
+
+        objectsToBeEnabledInOrder[10].SetActive(true) ;
+        objectsToBeEnabledInOrder[11].SetActive(false);
+
+        Time.timeScale = 1;
+
+        yield return new WaitUntil(() => objectsToBeEnabledInOrder[11].activeSelf);
+
+        InstructionTextToDisable.SetActive(false);
+
+        textBox.SetActive(true);
+        yield return ShowTextLetterByLetter(textBoxText, msgsInOrder[20], letterDelay);
+        //yield return new WaitUntil(() => !textBox.activeSelf);
+        yield return new WaitForSeconds(1f);
+
+        textBox.SetActive(false);
+
+        InstructionTextToDisable.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+
+        objectsToBeEnabledInOrder[13].SetActive(true);
+
+
+
     }
 
 

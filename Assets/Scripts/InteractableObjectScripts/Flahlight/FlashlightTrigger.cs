@@ -11,11 +11,13 @@ public class FlashlightTrigger : MonoBehaviour
         // Check if the collider belongs to an object tagged as "ScarySpider"
         if (other.CompareTag("ScarySpider"))
         {
+            Debug.Log("collosion with spider");
             // Attempt to get the child object with the script
             var childScript = other.GetComponentInChildren<FearController>();
 
             if (childScript != null)
             {
+                Debug.Log("Count Down Started for the spider ");
                 // Notify the child script that the flashlight is pointing at the object
                 childScript.SetFlashlightPointingAtObject(true);
                 isPointingAtScarySpider = true;

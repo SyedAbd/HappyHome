@@ -3,11 +3,16 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     private bool hasKey = false;
-    private bool isSpaceAvailable = true;
+    private bool isSpaceAvailable = true;//it is being used in another script
     private string keyTag;
     private GameObject gameObj;
 
     // Call this method when the player picks up the key
+
+    public bool IsSpaceAvailable()
+    {
+        return isSpaceAvailable;
+    }
     public void PickUpKey(GameObject obj,string tagOfTheKey)
     {
         hasKey = true;

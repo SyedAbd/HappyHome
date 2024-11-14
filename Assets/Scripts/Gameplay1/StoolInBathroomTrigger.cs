@@ -6,6 +6,7 @@ public class StoolInBathroomTrigger : MonoBehaviour
     [SerializeField] private GameObject objectToActivate; // The object to activate when conditions are met
     [SerializeField] private float maxDistanceBelow = 1.0f; // Maximum distance below reference object for activation (y-axis)
     [SerializeField] private float maxDistanceX = 0.5f; // Maximum horizontal distance from reference object for activation (x-axis)
+    [SerializeField] private PlayerInventory inventory;
 
     void Update()
     {
@@ -16,7 +17,11 @@ public class StoolInBathroomTrigger : MonoBehaviour
         // Check if the current object is within the specified range below and horizontally close to the reference object
         if (distanceBelow > 0 && distanceBelow <= maxDistanceBelow && distanceX <= maxDistanceX)
         {
-            objectToActivate.SetActive(true); // Activate the specified object
+            if (inventory.IsSpaceAvailable())
+            {
+
+                objectToActivate.SetActive(true);
+            } // Activate the specified object
         }
         else
         {
