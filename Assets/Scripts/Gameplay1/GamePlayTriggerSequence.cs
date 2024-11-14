@@ -12,12 +12,22 @@ public class GamePlayTriggerSequence : MonoBehaviour
     [SerializeField] private GameObject[] objectsToBeEnabledInOrder;
     [SerializeField] private float letterDelay = 0.01f;
     [SerializeField] private string[] msgsInOrder;
+    private bool hasGameStarted = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        if (!hasGameStarted) hasGameStarted = true;
+        else
         StartCoroutine(SequenceForGamePlay());
+
+
+    }
+
+    private IEnumerator WaitForGameToStart()
+    {
+        yield return new WaitForSeconds(2f);
     }
 
     // Update is called once per frame
