@@ -1760,6 +1760,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9173575071497199771}
     m_Modifications:
+    - target: {fileID: 2652795621895033991, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 316
+      objectReference: {fileID: 0}
     - target: {fileID: 2913561441674362984, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
       propertyPath: mainMenu
       value: 
@@ -1768,9 +1772,17 @@ PrefabInstance:
       propertyPath: settings
       value: 
       objectReference: {fileID: 5106734668055010067}
+    - target: {fileID: 4075599859802686477, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7194721508041432675, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
       propertyPath: m_Name
       value: Credits
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194721508041432675, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7424432475202747825, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
       propertyPath: m_LocalPosition.x
