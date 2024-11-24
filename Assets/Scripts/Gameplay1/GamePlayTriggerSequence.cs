@@ -260,9 +260,11 @@ public class GamePlayTriggerSequence : MonoBehaviour
         objectsToBeEnabledInOrder[10].SetActive(true) ;
         objectsToBeEnabledInOrder[11].SetActive(false);
 
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
 
         yield return new WaitUntil(() => objectsToBeEnabledInOrder[11].activeSelf);
+
+        Time.timeScale = 1f;
 
         InstructionTextToDisable.SetActive(false);
 

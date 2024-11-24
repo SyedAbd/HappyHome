@@ -8,11 +8,14 @@ public class FearController : MonoBehaviour
     public PlayerController playerController;       // Reference to the PlayerController script
     public TextMeshProUGUI fearMessageText;         // UI Text to display the fear message
     public GameObject objectToDeactivate;           // Parent object to deactivate when flashlight points at it
+    public SpriteRenderer objectSprite;             // Reference to the parent object's SpriteRenderer
     public float focusTimeToDeactivate = 2f;        // Time the flashlight needs to be pointed at the object
+    public float blinkSpeed = 1f;                   // Speed of the blinking effect
 
     private bool isPlayerInFearArea = false;        // Tracks if the player is in the fear area
     private bool isFlashlightPointingAtObject = false; // Tracks if flashlight is pointing at the object
     private float flashlightFocusTimer = 0f;        // Timer to track flashlight focus time
+    private Coroutine blinkCoroutine = null;
 
     void Start()
     {
@@ -26,40 +29,31 @@ public class FearController : MonoBehaviour
     {
         if (isPlayerInFearArea)
         {
-            playerController.isInFear = true; // Enable fear in the PlayerController
+            playerController.isInFear = true;
 
-            // Display message
-            if (fearMessageText != null)
-            {
-                //fearMessageText.text = "You are scared of the spider! Point the flashlight at it to make it go away.";
-            }
-
-            // Check if flashlight is focused on object
             if (isFlashlightPointingAtObject)
             {
                 flashlightFocusTimer += Time.deltaTime;
 
-                // Deactivate object if focus time exceeds required duration
                 if (flashlightFocusTimer >= focusTimeToDeactivate)
                 {
                     playerController.isInFear = false;
                     ResetFearState();
                     objectToDeactivate.SetActive(false);
-                    
                 }
             }
             else
             {
-                // Reset the timer if the flashlight moves away
                 flashlightFocusTimer = 0f;
             }
         }
         else
         {
-            playerController.isInFear = false; // Disable fear in PlayerController
+            playerController.isInFear = false;
+
             if (fearMessageText.text == "You are scared of the spider! Point the flashlight at it to make it go away.")
             {
-                fearMessageText.text = ""; // Clear fear message when player leaves area
+                fearMessageText.text = "";
             }
         }
     }
@@ -80,7 +74,6 @@ public class FearController : MonoBehaviour
         }
     }
 
-    // Method to reset fear state when player leaves the fear area
     private void ResetFearState()
     {
         isPlayerInFearArea = false;
@@ -90,18 +83,72 @@ public class FearController : MonoBehaviour
 
         if (fearMessageText != null)
         {
-            fearMessageText.text = ""; // Clear fear message
+            fearMessageText.text = "";
+        }
+
+        if (blinkCoroutine != null)
+        {
+            StopCoroutine(blinkCoroutine);
+            blinkCoroutine = null;
+        }
+
+        if (objectSprite != null)
+        {
+            SetAlpha(1f); // Restore alpha to 100%
         }
     }
 
-    private void OnDestroy()
-    {
-        playerController.isInFear = false;
-    }
-
-    // Call this method when the flashlight is pointing at the object
     public void SetFlashlightPointingAtObject(bool isPointing)
     {
         isFlashlightPointingAtObject = isPointing;
+
+        if (isPointing && isPlayerInFearArea)
+        {
+            if (blinkCoroutine == null && objectSprite != null)
+            {
+                blinkCoroutine = StartCoroutine(BlinkSprite());
+            }
+        }
+        else
+        {
+            if (blinkCoroutine != null)
+            {
+                StopCoroutine(blinkCoroutine);
+                blinkCoroutine = null;
+            }
+
+            if (objectSprite != null)
+            {
+                SetAlpha(1f); // Restore alpha to 100%
+            }
+        }
+    }
+
+    private IEnumerator BlinkSprite()
+    {
+        while (true)
+        {
+            for (float alpha = 0.2f; alpha <= 0.95f; alpha += Time.deltaTime * blinkSpeed)
+            {
+                SetAlpha(alpha);
+                yield return null;
+            }
+
+            for (float alpha = 0.95f; alpha >= 0.2f; alpha -= Time.deltaTime * blinkSpeed)
+            {
+                SetAlpha(alpha);
+                yield return null;
+            }
+        }
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        if (objectSprite != null)
+        {
+            Color color = objectSprite.color;
+            color.a = alpha;
+            objectSprite.color = color;
+        }
     }
 }

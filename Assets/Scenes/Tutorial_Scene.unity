@@ -425,7 +425,9 @@ MonoBehaviour:
   playerController: {fileID: 2012798734}
   fearMessageText: {fileID: 665356208}
   objectToDeactivate: {fileID: 797589655}
+  objectSprite: {fileID: 0}
   focusTimeToDeactivate: 2
+  blinkSpeed: 1
 --- !u!114 &463564039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -994,6 +996,11 @@ GameObject:
 --- !u!4 &797589657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4654468168648065515, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+  m_PrefabInstance: {fileID: 1172935886920928217}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &797589659 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5281251357493830093, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
   m_PrefabInstance: {fileID: 1172935886920928217}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &805411147
@@ -2844,10 +2851,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 935406079}
     m_Modifications:
+    - target: {fileID: 1280684932425446617, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280684932425446617, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280684932425446617, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 2783143183980142861, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
       propertyPath: m_Name
       value: Scary_Spider
       objectReference: {fileID: 0}
+    - target: {fileID: 3119044396333202180, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: objectSprite
+      value: 
+      objectReference: {fileID: 797589659}
     - target: {fileID: 3119044396333202180, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
       propertyPath: fearMessageText
       value: 
@@ -2856,13 +2879,25 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 2012798734}
+    - target: {fileID: 3119044396333202180, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: focusTimeToDeactivate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654468168648065515, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.40030748
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654468168648065515, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.41718662
+      objectReference: {fileID: 0}
     - target: {fileID: 4654468168648065515, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -796.96
+      value: -794.87
       objectReference: {fileID: 0}
     - target: {fileID: 4654468168648065515, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -708.37
+      value: -709.29
       objectReference: {fileID: 0}
     - target: {fileID: 4654468168648065515, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2895,6 +2930,26 @@ PrefabInstance:
     - target: {fileID: 4654468168648065515, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 144.455
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281251357493830093, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: m_Color.b
+      value: 0.504717
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281251357493830093, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: m_Color.g
+      value: 0.504717
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281251357493830093, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640227585299332015, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: m_Size.x
+      value: 27.396538
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640227585299332015, guid: d0afa3b864fdbeb498ad68184dabfa73, type: 3}
+      propertyPath: m_Offset.x
+      value: 5.587467
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

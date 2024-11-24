@@ -73,12 +73,13 @@ public class FearTriggerSequence : MonoBehaviour
         yield return ShowTextLetterByLetter(initialMessageText, " See, everything’s fine, I’ve got you. You can keep the flashlight if you want", initialMessageDuration);
         yield return new WaitForSecondsRealtime(2f);
         if (initialMessageText.text == "See, everything’s fine, I’ve got you. You can keep the flashlight if you want") initialMessageText.text = "";
-
+        Time.timeScale = 0f;
         textBox.SetActive(true);
         ShowText(textBoxText, secondMsg);
 
         yield return new WaitUntil(() => !textBox.activeSelf);
 
+        Time.timeScale = 1f;
         // Step 8: Final message and game resume
         yield return ShowTextLetterByLetter(initialMessageText, "I think I should head to bed now…", initialMessageDuration);
         Time.timeScale = 1;

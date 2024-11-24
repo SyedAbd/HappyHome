@@ -186,6 +186,7 @@ public class DialogueManager : MonoBehaviour
     void RemoveChildren()
     {
         int childCount = canvas.transform.childCount;
+
         for (int i = childCount - 1; i >= 0; --i)
         {
             Destroy(canvas.transform.GetChild(i).gameObject);
