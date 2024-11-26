@@ -14,7 +14,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Canvas canvas = null;
     [SerializeField] private TextMeshProUGUI textPrefab = null;
     [SerializeField] private Button buttonPrefab = null;
-    [SerializeField] public bool skipText;
+    [SerializeField] public bool skipText = false;
+    public bool skipTextOnClick = false;
 
 
     public static event Action<Story> OnCreateStory;
@@ -26,6 +27,8 @@ public class DialogueManager : MonoBehaviour
 
     private bool firstTimeContinuingStory = true;
     public GameObject isSceneActive;
+
+    [SerializeField] GameObject clickablePanelToSkipText;
 
     void Awake()
     {
@@ -70,11 +73,13 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator ShowStorySequentially()
     {
+        clickablePanelToSkipText.SetActive(true);
         foreach (var line in storyLines)
         {
             yield return StartCoroutine(CreateContentView(line));
             yield return new WaitForSeconds(0.5f);
         }
+        clickablePanelToSkipText.SetActive(false);
 
         if (story.currentChoices.Count > 0)
         {
@@ -165,9 +170,10 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in text.ToCharArray())
         {
             storyText.text += letter;
-            if (!skipText)
+            if (!skipTextOnClick && !skipText)
                 yield return new WaitForSeconds(letterDelay);
         }
+        skipTextOnClick = false;
     }
 
     Button CreateChoiceView(string text)
