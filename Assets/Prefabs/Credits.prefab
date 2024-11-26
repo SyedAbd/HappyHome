@@ -635,7 +635,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7424432475202747825}
-  - component: {fileID: 7123652127545611663}
   m_Layer: 0
   m_Name: Credits
   m_TagString: Untagged
@@ -650,7 +649,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7194721508041432675}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.90843534}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -664,29 +663,6 @@ RectTransform:
   m_AnchoredPosition: {x: 707.1477, y: 460.3933}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &7123652127545611663
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7194721508041432675}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1 &7904893533504358292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151267620209425263, guid: 556724e4aca1c0f42b28df42881c4323, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -606
+      value: 316
       objectReference: {fileID: 0}
     - target: {fileID: 1151267620209425263, guid: 556724e4aca1c0f42b28df42881c4323, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1125,6 +1101,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1151267620209425263, guid: 556724e4aca1c0f42b28df42881c4323, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415801710405086181, guid: 556724e4aca1c0f42b28df42881c4323, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3384252195206489881, guid: 556724e4aca1c0f42b28df42881c4323, type: 3}

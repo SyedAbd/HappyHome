@@ -6,7 +6,7 @@ public class MenuToggle : MonoBehaviour
     public GameObject menuParent; // Parent object to activate first
     public Canvas mainMenu;
     public Canvas settingsMenu;
-    public Canvas creditsMenu;
+    public GameObject creditsMenu;
     public Button closeButton; // Button to close the active menu
 
     private Canvas activeMenu = null; // Track the currently active menu
@@ -61,7 +61,7 @@ public class MenuToggle : MonoBehaviour
     // Open credits menu
     public void OpenCreditsMenu()
     {
-        SetActiveMenu(creditsMenu);
+        creditsMenu.gameObject.SetActive(true);
     }
 
     // Close the currently active menu, deactivate the parent, and resume the game

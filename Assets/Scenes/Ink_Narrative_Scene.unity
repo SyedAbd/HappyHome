@@ -1172,6 +1172,10 @@ PrefabInstance:
       propertyPath: settings
       value: 
       objectReference: {fileID: 4753954156124036826}
+    - target: {fileID: 3662916144327166457, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3889725904272111518, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -1229,18 +1233,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5971916304708256004, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
 --- !u!224 &1628736743 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7424432475202747825, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
-  m_PrefabInstance: {fileID: 1628736742}
-  m_PrefabAsset: {fileID: 0}
---- !u!223 &1628736744 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7123652127545611663, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
   m_PrefabInstance: {fileID: 1628736742}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1646591361
@@ -1398,7 +1398,7 @@ MonoBehaviour:
   menuParent: {fileID: 5810778747408359298}
   mainMenu: {fileID: 7385918948051062905}
   settingsMenu: {fileID: 6849088250406813234}
-  creditsMenu: {fileID: 1628736744}
+  creditsMenu: {fileID: 1182359406}
   closeButton: {fileID: 6701558513977045749}
 --- !u!1 &1912967398
 GameObject:
@@ -3021,7 +3021,7 @@ MonoBehaviour:
   sceneIndex: 1
   settings: {fileID: 4753954156124036826}
   mainMenu: {fileID: 4695284804265331521}
-  credits: {fileID: 0}
+  credits: {fileID: 1182359406}
 --- !u!222 &5013088187456190925
 CanvasRenderer:
   m_ObjectHideFlags: 0

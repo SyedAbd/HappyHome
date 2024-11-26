@@ -43,6 +43,15 @@ public class LoadSceneOnClick : MonoBehaviour
 
 
     }
+
+    public void LoadInkScence()
+    {
+        mainMenu.SetActive(false);
+        settings.SetActive(false);
+        credits.SetActive(false);
+
+
+    }
     public void LoadMainMenu()
     {
         mainMenu.SetActive(true);
