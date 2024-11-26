@@ -2209,7 +2209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6225bc7d949acfe42a63d9090911124d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: This door seemed to be locked. I need to find the key
+  message: ' This door seemed to be locked. I need to find the key'
   letterDelay: 0.05
   activationKey: 101
   messageText: {fileID: 1421583256}
@@ -3607,7 +3607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6225bc7d949acfe42a63d9090911124d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: This is jamie's room i should not go there
+  message: ' This is jamie''s room i should not go there'
   letterDelay: 0.01
   activationKey: 101
   messageText: {fileID: 1421583256}

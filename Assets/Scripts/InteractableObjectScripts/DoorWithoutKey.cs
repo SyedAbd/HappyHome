@@ -10,7 +10,7 @@ public class DoorWithoutKey : MonoBehaviour
     public TextMeshProUGUI messageText; // Reference to the TextMeshProUGUI component
 
     private bool playerInRange = false;
-    private bool displayingMessage = false;
+    private Coroutine messageCoroutine = null; // Keep track of the active coroutine
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,23 +25,25 @@ public class DoorWithoutKey : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            StopAllCoroutines(); // Stop showing the message if the player exits the trigger
+            StopMessageCoroutine(); // Stop showing the message if the player exits the trigger
             messageText.text = ""; // Clear the text
-            displayingMessage = false;
         }
     }
 
     private void Update()
     {
-        if (playerInRange && !displayingMessage && Input.GetKeyDown(activationKey))
+        if (playerInRange && Input.GetKeyDown(activationKey))
         {
-            StartCoroutine(DisplayMessage());
+            if (messageCoroutine != null)
+            {
+                StopMessageCoroutine(); // Stop the current coroutine if running
+            }
+            messageCoroutine = StartCoroutine(DisplayMessage()); // Start a new coroutine
         }
     }
 
     private IEnumerator DisplayMessage()
     {
-        displayingMessage = true;
         messageText.text = ""; // Clear any previous text
 
         foreach (char letter in message)
@@ -50,6 +52,15 @@ public class DoorWithoutKey : MonoBehaviour
             yield return new WaitForSeconds(letterDelay); // Wait for a bit before adding the next letter
         }
 
-        displayingMessage = false;
+        messageCoroutine = null; // Clear the reference when done
+    }
+
+    private void StopMessageCoroutine()
+    {
+        if (messageCoroutine != null)
+        {
+            StopCoroutine(messageCoroutine); // Stop the active coroutine
+            messageCoroutine = null; // Clear the reference
+        }
     }
 }
