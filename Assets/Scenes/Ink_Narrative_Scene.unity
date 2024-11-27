@@ -994,10 +994,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1076,6 +1076,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053891275}
   m_CullTransparentMesh: 1
+--- !u!114 &1081504870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053891275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &1182359406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7194721508041432675, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
@@ -1183,6 +1206,18 @@ PrefabInstance:
     - target: {fileID: 4075599859802686477, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736891327595908450, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736891327595908450, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736891327595908450, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 7194721508041432675, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
       propertyPath: m_Name
@@ -2264,10 +2299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2416,6 +2451,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -525
       objectReference: {fileID: 0}
+    - target: {fileID: 519196644301826871, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1200574580336905351, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 4294967295
@@ -2555,6 +2594,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 519196644301826871, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1081504868}
+    - targetCorrespondingSourceObject: {fileID: 519196644301826871, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1081504870}
   m_SourcePrefab: {fileID: 100100000, guid: 5df68ce7d45357b49ae1ae21e8896abf, type: 3}
 --- !u!114 &3274115563282020064
 MonoBehaviour:
@@ -3288,10 +3330,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

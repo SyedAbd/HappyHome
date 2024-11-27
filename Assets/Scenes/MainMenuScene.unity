@@ -1222,6 +1222,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7544294685406819542, guid: 959aa93e55960b54681027bfa77746b0, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544294685406819542, guid: 959aa93e55960b54681027bfa77746b0, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544294685406819542, guid: 959aa93e55960b54681027bfa77746b0, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5395745283567802680, guid: 959aa93e55960b54681027bfa77746b0, type: 3}
@@ -1435,10 +1447,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1455,6 +1467,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9173575071497199771}
+  - component: {fileID: 9173575071497199772}
+  - component: {fileID: 9173575071497199773}
   m_Layer: 0
   m_Name: MenuSystem
   m_TagString: Untagged
@@ -1788,6 +1802,26 @@ Transform:
   - {fileID: 6989518427118355127}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9173575071497199772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258815629158829389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d898463d9ff14bf4cbf4cdbf95f76802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!222 &9173575071497199773
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258815629158829389}
+  m_CullTransparentMesh: 1
 --- !u!1001 &9216335717136260450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1804,6 +1838,18 @@ PrefabInstance:
       propertyPath: settings
       value: 
       objectReference: {fileID: 5106734668055010067}
+    - target: {fileID: 5736891327595908450, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736891327595908450, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736891327595908450, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 7194721508041432675, guid: b0d4a22ce41f16648ab6928b33223b84, type: 3}
       propertyPath: m_Name
       value: Credits
