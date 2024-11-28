@@ -131,7 +131,11 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.isToMove = true;
             GameManager.Instance.ChnageSceneToTutorial();
         }
+        else if (choice.text.Contains("End of prologue"))
+        {
 
+            SceneManager.LoadScene(4); 
+        }
         StartCoroutine(ContinueTheStory());
     }
 
