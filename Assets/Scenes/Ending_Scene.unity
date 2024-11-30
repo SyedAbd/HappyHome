@@ -488,7 +488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2042276612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,9 +549,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2133059526}
   - component: {fileID: 2133059530}
-  - component: {fileID: 2133059529}
   - component: {fileID: 2133059528}
-  - component: {fileID: 2133059527}
+  - component: {fileID: 2133059529}
+  - component: {fileID: 2133059531}
   m_Layer: 5
   m_Name: Button_Quit
   m_TagString: Untagged
@@ -579,18 +579,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -239}
   m_SizeDelta: {x: 339.3986, y: 87.662}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2133059527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133059525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d44b3bcd9ef73548afbd051d689b380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2133059528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,7 +623,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2133059527}
+      - m_Target: {fileID: 2133059531}
         m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -685,6 +673,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133059525}
   m_CullTransparentMesh: 1
+--- !u!114 &2133059531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133059525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d44b3bcd9ef73548afbd051d689b380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
