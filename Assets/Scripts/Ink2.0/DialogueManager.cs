@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
     [SerializeField] private TextAsset inkJSONAsset = null;
     [SerializeField] private Canvas canvas = null;
     [SerializeField] private TextMeshProUGUI textPrefab = null;
@@ -17,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] public bool skipText = false;
     public bool skipTextOnClick = false;
 
+    [SerializeField] private AudioSource typingAudioSource; // Reference to the AudioSource
 
     public static event Action<Story> OnCreateStory;
     public Story story;
@@ -40,16 +40,19 @@ public class DialogueManager : MonoBehaviour
             firstTimeContinuingStory = false;
         }
     }
+
     public void ToggleSkipButton()
     {
-
-        if(skipText == true)
+        if (skipText == true)
         {
             skipText = false;
         }
-        else skipText = true;
-
+        else
+        {
+            skipText = true;
+        }
     }
+
     void StartStory()
     {
         story = new Story(inkJSONAsset.text);
@@ -133,8 +136,7 @@ public class DialogueManager : MonoBehaviour
         }
         else if (choice.text.Contains("End of prologue"))
         {
-
-            SceneManager.LoadScene(4); 
+            SceneManager.LoadScene(4);
         }
         StartCoroutine(ContinueTheStory());
     }
@@ -171,9 +173,19 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeText(TextMeshProUGUI storyText, string text)
     {
         storyText.text = "";
+        int letterCount = 0; // Counter for letters
         foreach (char letter in text.ToCharArray())
         {
             storyText.text += letter;
+
+            // Play typing sound every third letter
+            if (typingAudioSource != null && letterCount % 3 == 0)
+            {
+                typingAudioSource.PlayOneShot(typingAudioSource.clip);
+            }
+
+            letterCount++; // Increment letter count
+
             if (!skipTextOnClick && !skipText)
                 yield return new WaitForSeconds(letterDelay);
         }
@@ -202,6 +214,7 @@ public class DialogueManager : MonoBehaviour
             Destroy(canvas.transform.GetChild(i).gameObject);
         }
     }
-
-    
 }
+
+
+

@@ -14,6 +14,13 @@ public class GameManager : MonoBehaviour
 
     private DialogueManager dialogueManager;
     private GameObject sceneController;
+
+    // Music settings
+    public AudioClip inkMusicClip; // Music for the Ink scene
+    public AudioClip gameplayMusicClip; // Music for gameplay scenes
+    private string inkSceneName = "Ink_Narrative_Scene"; // The name of the Ink scene
+    private string roomsSceneName = "Rooms_Scene"; // The name of the gameplay scene
+
     public string roomName
     {
         get { return _roomName; }
@@ -25,10 +32,12 @@ public class GameManager : MonoBehaviour
         get { return _isToMove; }
         set { _isToMove = value; }
     }
+
     private void Start()
     {
         GameObject sceneController = GameObject.Find("SceneController");
     }
+
     void Awake()
     {
         // Ensure this manager persists across scenes
@@ -37,19 +46,18 @@ public class GameManager : MonoBehaviour
             Instance = this;
             LoadRoomScene();
             LoadTutorialScene();
-            
-            
-            
+
             DontDestroyOnLoad(gameObject); // Prevent this object from being destroyed on scene load
         }
         else
         {
-            Destroy(gameObject); // Destroy duplicate Updated upstream
+            Destroy(gameObject); // Destroy duplicate instance
         }
     }
+
     public void Update()
     {
-        if(isInkActive)
+        if (isInkActive)
         {
             SetActiveInRoomsScene(false);
             SetActiveInTutorial(false);
@@ -58,80 +66,78 @@ public class GameManager : MonoBehaviour
         {
             SetActiveInTutorial(false);
             SetActiveInkScene(false);
-
         }
         else if (isTutorialActive)
         {
             SetActiveInRoomsScene(false);
             SetActiveInkScene(false);
-
         }
     }
 
     public void ChnageSceneToRooms()
     {
         Play_Animation_Fade("from_black");
-        
+
         isInkActive = false;
         isTutorialActive = false;
         isRoomsActive = true;
         SetActiveInRoomsScene(true);
         SetActiveInkScene(false);
+        MusicManager.Instance.StopMusic(); // Stop music when switching to rooms
     }
 
     public void ChnageSceneToTutorial()
     {
         Play_Animation_Fade("from_black");
         isInkActive = false;
-        isRoomsActive=false;
+        isRoomsActive = false;
         isTutorialActive = true;
         SetActiveInTutorial(true);
         SetActiveInRoomsScene(false);
         SetActiveInkScene(false);
-
+        MusicManager.Instance.StopMusic(); // Stop music when switching to tutorial
     }
+
     public void ChnageSceneToInkFromTutorial()
     {
-        //Play_Animation_Fade("from_black");
         isTutorialActive = false;
-        isRoomsActive=false;
+        isRoomsActive = false;
         isInkActive = true;
         SetActiveInTutorial(false);
         SetActiveInRoomsScene(false);
         UnloadTutorialScene();
         SetActiveInkScene(true);
-
+        MusicManager.Instance.PlayMusic(inkMusicClip); // Play music for Ink scene
     }
+
     public void ChangeSceneToink()
     {
         Play_Animation_Fade("from_black");
         isRoomsActive = false;
-        isTutorialActive=false;
+        isTutorialActive = false;
         isInkActive = true;
         SetActiveInRoomsScene(false);
         SetActiveInTutorial(false);
         SetActiveInkScene(true);
+        MusicManager.Instance.PlayMusic(inkMusicClip); // Play music for Ink scene
+    }
 
-        //if (sceneController != null)
-        //{
-        //    dialogueManager = sceneController.GetComponent<DialogueManager>();
-        //    dialogueManager.ContinueTheStory();
-
-        //}
-
+    public void ChangeBackgroundMusic(AudioClip newClip)
+    {
+        MusicManager.Instance.ChangeMusic(newClip); // Call the simple method to switch the music
     }
 
     // Start a fading animation coroutine
     public void Play_Animation_Fade(string choice)
-	{
+    {
         StartCoroutine(Animation_Fade(choice));
     }
 
     IEnumerator Animation_Fade(string choice)
-	{
+    {
         // Trigger the fade animation
-        switch(choice)
-		{
+        switch (choice)
+        {
             case "from_black":
                 animator_canvas.SetTrigger("Fade_From_Black");
                 break;
@@ -144,7 +150,7 @@ public class GameManager : MonoBehaviour
         }
 
         yield return null;
-	}
+    }
 
     // Method to load the Rooms scene in the background
     public void LoadRoomScene()
@@ -155,6 +161,7 @@ public class GameManager : MonoBehaviour
             SetActiveInRoomsScene(false);
         }
     }
+
     public void LoadTutorialScene()
     {
         if (!SceneManager.GetSceneByName("Tutorial_Scene").isLoaded)
@@ -171,6 +178,7 @@ public class GameManager : MonoBehaviour
             SceneManager.UnloadSceneAsync("Rooms_Scene");
         }
     }
+
     public void UnloadTutorialScene()
     {
         if (SceneManager.GetSceneByName("Tutorial_Scene").isLoaded)
@@ -178,13 +186,13 @@ public class GameManager : MonoBehaviour
             SceneManager.UnloadSceneAsync("Tutorial_Scene");
         }
     }
+
     public void SetActiveInRoomsScene(bool isActive)
     {
         Scene roomsScene = SceneManager.GetSceneByName("Rooms_Scene");
 
         if (roomsScene.isLoaded)
         {
-            // Find the GameObject in the scene by tag or name
             GameObject targetObject = null;
 
             foreach (GameObject obj in roomsScene.GetRootGameObjects())
@@ -196,7 +204,6 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            // Activate or deactivate the object
             if (targetObject != null)
             {
                 targetObject.SetActive(isActive);
@@ -218,21 +225,17 @@ public class GameManager : MonoBehaviour
 
         if (TutorialScene.isLoaded)
         {
-            Debug.Log("in the active obj in tutorial scene");
-            // Find the GameObject in the scene by tag or name
             GameObject targetObject = null;
 
             foreach (GameObject obj in TutorialScene.GetRootGameObjects())
             {
                 if (obj.CompareTag("ActiveOrInactive") || obj.name == "Active")
                 {
-                    Debug.Log("Found the active obj in tutorial scene");
                     targetObject = obj;
                     break;
                 }
             }
 
-            // Activate or deactivate the object
             if (targetObject != null)
             {
                 targetObject.SetActive(isActive);
@@ -248,14 +251,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
     public void SetActiveInkScene(bool isActive)
     {
         Scene inkScene = SceneManager.GetSceneByName("Ink_Narrative_Scene");
 
         if (inkScene.isLoaded)
         {
-            // Find the GameObject in the scene by tag or name
             GameObject targetObject = null;
 
             foreach (GameObject obj in inkScene.GetRootGameObjects())
@@ -267,7 +268,6 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            // Activate or deactivate the object
             if (targetObject != null)
             {
                 targetObject.SetActive(isActive);
@@ -279,7 +279,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("ink_Scene is not loaded.");
+            Debug.LogWarning("Ink_Scene is not loaded.");
         }
     }
 }

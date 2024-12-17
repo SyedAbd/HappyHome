@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Door : MonoBehaviour
 {
@@ -17,7 +17,6 @@ public class Door : MonoBehaviour
         HallwayKey,
         BathroomKey,
         LivingroomKey,
-
     }
 
     [Header("Room Settings")]
@@ -31,26 +30,24 @@ public class Door : MonoBehaviour
     [SerializeField] private string instructionTextNoKeyRequired = "Press E to enter "; // Text when no key is required
     [SerializeField] private TextMeshProUGUI instructionText; // TextMeshPro for displaying instructions
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource teleportSound; // AudioSource for the teleport sound
+
     private bool isNearDoor = false;
     private PlayerInventory playerInventory;
 
     private void Start()
     {
-        // Initialize the instruction text UI
-        //instructionText.gameObject.SetActive(false);
-
         instructionText.enabled = true;
         instructionText.text = "";
     }
 
     private void Update()
     {
-        // Check if player is near door and presses E to enter
         if (isNearDoor && Input.GetKeyDown(KeyCode.E))
         {
             if (requiresKey)
             {
-                // Check if player has the key for this door
                 if (playerInventory != null && playerInventory.HasKey(requiredKeyTag.ToString()))
                 {
                     playerInventory.UseKey();
@@ -59,23 +56,37 @@ public class Door : MonoBehaviour
                 }
                 else
                 {
-                    instructionText.text = instructionTextNoKey; // Update text to show the door is locked
+                    instructionText.text = instructionTextNoKey;
                 }
             }
             else
             {
-                OpenDoor(); // Open door if no key is required
+                OpenDoor();
             }
         }
     }
 
-    private void OpenDoor()
+    private IEnumerator PlaySoundAndFade()
     {
-        // Deactivate current instruction text
-        //instructionText.gameObject.SetActive(false);
-        instructionText.text = "";
+        ScreenFader screenFader = FindObjectOfType<ScreenFader>();
 
-        // Call PlayerManager to teleport to the chosen room
+        if (screenFader != null)
+        {
+            // Start fade and sound simultaneously
+            StartCoroutine(screenFader.FadeToBlack());
+        }
+
+        if (teleportSound != null)
+        {
+            teleportSound.Play();
+            Debug.Log("Teleport sound played");
+        }
+
+        // Wait for the sound to finish or fade duration, whichever is longer
+        float waitTime = teleportSound != null ? teleportSound.clip.length : 0;
+        yield return new WaitForSeconds(waitTime);
+
+        // Perform the room transition
         PlayerManager playerManager = FindObjectOfType<PlayerManager>();
         if (playerManager != null)
         {
@@ -95,6 +106,18 @@ public class Door : MonoBehaviour
                     break;
             }
         }
+
+        // Immediately fade back to clear after the transition
+        if (screenFader != null)
+        {
+            yield return screenFader.FadeToClear();
+        }
+    }
+
+    private void OpenDoor()
+    {
+        instructionText.text = "";
+        StartCoroutine(PlaySoundAndFade());
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -104,7 +127,6 @@ public class Door : MonoBehaviour
             isNearDoor = true;
             playerInventory = other.GetComponent<PlayerInventory>();
 
-            // Determine which text to show based on key requirement and availability
             if (requiresKey)
             {
                 if (playerInventory != null && playerInventory.HasKey(requiredKeyTag.ToString()))
@@ -121,7 +143,6 @@ public class Door : MonoBehaviour
                 instructionText.text = instructionTextNoKeyRequired + targetRoom;
             }
 
-            // Show the instruction text UI
             instructionText.gameObject.SetActive(true);
             instructionText.enabled = true;
         }
@@ -132,8 +153,9 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isNearDoor = false;
-            //instructionText.gameObject.SetActive(false); // Hide instruction text when player leaves the area
             instructionText.text = "";
         }
     }
 }
+
+
